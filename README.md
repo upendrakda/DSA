@@ -200,17 +200,17 @@ Else → Remove element and decrement top
 
 ---
 
-## ⚠️ Stack Conditions
+### ⚠️ Stack Conditions
 
-### 🚫 Stack Overflow
+#### 🚫 Stack Overflow
 Occurs when trying to push an element into a **full stack**.
 
-### 🚫 Stack Underflow
+#### 🚫 Stack Underflow
 Occurs when trying to pop an element from an **empty stack**.
 
 ---
 
-## 🏗️ Program Flow
+### 🏗️ Program Flow
 1. Initialize stack and set `top = -1`
 2. Display a menu for stack operations
 3. Perform operation based on user choice
@@ -218,7 +218,7 @@ Occurs when trying to pop an element from an **empty stack**.
 
 ---
 
-## 📚 Applications of Stack
+### 📚 Applications of Stack
 - Function calls and recursion
 - Expression evaluation
 - Undo/Redo operations
@@ -227,10 +227,422 @@ Occurs when trying to pop an element from an **empty stack**.
 
 ---
 
-## 🧾 Conclusion
+### 🧾 Conclusion
 This program helps in understanding how a **stack works internally using an array**. It clearly demonstrates stack operations and highlights important conditions like **overflow and underflow**, making it a good foundation for learning data structures.
 Actual code implementation can be done using any programming language such as **C, C++, or Java**.
 
 ---
 
+## 🔁 Infix to Postfix Expression Conversion
 
+### 📌 Overview
+
+- **Infix Expression**  
+  Operators are written **between operands** 
+  A + B
+
+- **Postfix Expression (Reverse Polish Notation)**  
+    Operators are written **after operands**  
+    AB+
+
+👉 Postfix expressions **do not require parentheses** and are easier to evaluate using stacks.
+
+---
+
+### 🎯 Objective
+
+- Convert a given **infix expression** into its **postfix equivalent**
+- Implement the solution using:
+    - Stack (array implementation)
+    - Operator precedence rules
+    - Parenthesis handling
+
+---
+
+### 🧮 Operator Precedence
+
+| Operator | Precedence |
+|--------|------------|
+| `^`    | Highest |
+| `* /`  | Medium |
+| `+ -`  | Lowest |
+
+---
+
+### 🔑 Algorithm
+
+1. Initialize an empty stack for operators
+2. Scan the infix expression from **left to right**
+3. If the scanned character is:
+ - **Operand** → add it to postfix expression
+ - **`(`** → push onto stack
+ - **`)`** → pop from stack until `(` is found
+ - **Operator** →  
+   - Pop operators from stack with **higher or equal precedence**
+   - Push the current operator
+4. After scanning the expression, pop all remaining operators from the stack
+5. The resulting string is the **postfix expression**
+
+---
+
+### 📌 Example
+
+#### Input
+A+B*(C-D)
+
+#### Output
+ABCD-*+
+
+---
+
+### 🧪 Sample Dry Run
+
+| Symbol | Stack | Postfix |
+|------|-------|---------|
+| A | — | A |
+| + | + | A |
+| B | + | AB |
+| * | + * | AB |
+| ( | + * ( | AB |
+| C | + * ( | ABC |
+| - | + * ( - | ABC |
+| D | + * ( - | ABCD |
+| ) | + * | ABCD- |
+| End | — | ABCD-*+ |
+
+---
+
+### 🧠 Applications
+
+- Compiler design
+- Expression evaluation
+- Syntax parsing
+- Calculator programs
+
+---
+
+### ✅ Conclusion
+
+This project clearly demonstrates how **stacks simplify expression conversion** and highlights their importance in real-world applications like compilers and interpreters.
+
+---
+
+## 🔁 Infix to Prefix Expression Conversion
+
+### 📌 Overview
+
+- **Infix Expression**  
+  Operators are written **between operands**  
+    A + B
+
+- **Prefix Expression (Polish Notation)**  
+    Operators are written **before operands**  
+    +AB
+
+👉 Prefix expressions **do not require parentheses** and are easier to evaluate using stacks.
+
+---
+
+### 🎯 Objective
+
+- Convert a given **infix expression** into its **prefix equivalent**
+- Implement the solution using:
+    - Stack (array implementation)
+    - Operator precedence rules
+    - Parenthesis handling
+    - Reverse technique
+
+---
+
+### 🧮 Operator Precedence
+
+| Operator | Precedence |
+|--------|------------|
+| `^`    | Highest |
+| `* /`  | Medium |
+| `+ -`  | Lowest |
+
+---
+
+### 🔑 Algorithm (Reverse–Postfix Method)
+
+1. Reverse the given infix expression
+2. Replace:
+ - `(` with `)`
+ - `)` with `(`
+3. Convert the modified expression to **postfix** using stack rules
+4. Reverse the postfix expression to obtain the **prefix expression**
+
+---
+
+### 📌 Example
+
+#### Input
+A+B*(C-D)
+
+#### Output
+A * B - C D
+
+(Without spaces: `+A*B-CD`)
+
+---
+
+### 🧪 Sample Dry Run
+
+#### Step 1: Reverse Infix
+)D-C(*B+A
+
+#### Step 2: Replace Brackets
+(D-C)*B+A
+
+#### Step 3: Postfix Conversion
+DC-*B+A+
+
+#### Step 4: Reverse Postfix (Prefix Result)
++A*B-CD
+
+---
+
+### 🧠 Applications
+
+- Compiler design
+- Expression evaluation
+- Syntax parsing
+- Calculator programs
+
+---
+
+### ✅ Conclusion
+
+This project highlights how **infix expressions can be efficiently converted to prefix form** using stacks and string manipulation, making it a key concept in data structures and compiler design.
+
+---
+
+## Postfix Expression Evaluation
+
+### 📌 Objective
+
+The objective of this program is to evaluate a postfix (Reverse Polish) expression using the stack data structure. The program demonstrates how stacks are effectively used to process expressions where operators follow operands, eliminating the need for parentheses and operator precedence rules.
+
+---
+
+### 📌 Introduction
+
+In computer science, expressions can be represented in three forms:
+- Infix (e.g., A + B)
+- Prefix (e.g., + A B)
+- Postfix (e.g., A B +)
+
+Postfix expressions are especially useful for computation because they can be evaluated from left to right using a stack, making them simple and efficient for machines to process.
+
+---
+
+### 🧠 Core Concepts
+
+1️⃣ Stack Data Structure
+- A stack is a linear data structure that follows the LIFO (Last In, First Out) principle.
+- Basic stack operations include:
+    - Push: Insert an element onto the stack
+    - Pop: Remove the top element from the stack
+- Stacks are ideal for postfix evaluation because operands can be stored temporarily until an operator is encountered.
+
+2️⃣ Postfix Expression
+- A postfix expression places operators after their operands.
+- Example:
+    - Infix: 3 + 4
+    - Postfix: 34+
+- Characteristics:
+    - No parentheses required
+    - No need to consider operator precedence
+    - Evaluated strictly from left to right
+
+3️⃣ Operand and Operator Handling
+- Operands (numbers) are pushed onto the stack.
+- Operators trigger the removal (pop) of the top two operands from the stack.
+- The operation is performed and the result is pushed back onto the stack.
+
+---
+
+### 🧠 Working Principle
+- Initialize an empty stack.
+- Scan the postfix expression from left to right.
+- If the scanned symbol is an operand, push it onto the stack.
+- If the scanned symbol is an operator:
+    - Pop the top two operands from the stack.
+    - Apply the operator to these operands.
+    - Push the result back onto the stack.
+- After the entire expression is processed, the stack contains a single value.
+- This value is the final result of the postfix expression.
+
+---
+
+### 🎯 Applications
+- Expression evaluation in compilers
+- Calculator implementations
+- Parsing arithmetic expressions
+- Stack-based virtual machines
+
+---
+
+### 🎯 Advantages
+- Simple and efficient evaluation
+- No need for parentheses or precedence rules
+- Suitable for stack-based computation
+- Faster evaluation compared to infix expressions
+
+---
+
+### 🧾 Conclusion
+
+Postfix expression evaluation is a classic application of the stack data structure. By using LIFO principles, complex arithmetic expressions can be evaluated efficiently and systematically. This approach is widely used in compilers and interpreters, making it an important concept in data structures and algorithms.
+
+---
+
+## Prefix Expression Evaluation
+
+### 📌 Objective
+
+The objective of this program is to evaluate a prefix (Polish) expression using the stack data structure. The program highlights how prefix expressions can be efficiently evaluated by reversing the expression and applying stack-based computation.
+
+---
+
+### ✨ Introduction
+
+Arithmetic expressions can be written in three notations:
+- Infix → A + B
+- Prefix → + A B
+- Postfix → A B +
+In prefix notation, the operator appears before its operands. This notation is widely used in expression parsing because it eliminates the need for parentheses and operator precedence rules, making evaluation straightforward for machines.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Stack Data Structure
+- A stack is a linear data structure that follows the LIFO (Last In, First Out) principle.
+- Key operations:
+    - Push – Insert an element into the stack
+    - Pop – Remove the top element from the stack
+- Stacks play a crucial role in expression evaluation by temporarily storing operands until operators are applied.
+
+2️⃣ Prefix Expression
+- In a prefix expression:
+    - Operators come before operands
+    - Evaluation is naturally performed from right to left
+- Example:
+    - Infix: 3 + 4
+    - Prefix: +34
+
+3️⃣ Reversal Technique
+- Direct evaluation of prefix expressions is complex when scanning from left to right.
+- To simplify:
+    - The prefix expression is reversed
+    - The reversed expression is then evaluated similarly to a postfix expression
+- This approach allows efficient processing using a stack.
+
+---
+
+### ⚙️ Working Principle
+- Read the prefix expression.
+- Reverse the given expression.
+- Initialize an empty stack.
+- Scan the reversed expression from left to right.
+- If the symbol is an operand, push it onto the stack.
+- If the symbol is an operator:
+    - Pop two operands from the stack.
+    - Apply the operator in correct order.
+    - Push the result back onto the stack.
+- After complete evaluation, the stack contains a single value.
+- This value represents the final result of the prefix expression.
+
+---
+
+### 🚀 Applications
+- Compiler design and expression parsing
+- Calculator implementations
+- Stack-based interpreters
+- Symbolic computation systems
+
+---
+
+### 🏁 Conclusion
+
+Prefix expression evaluation is a powerful application of stacks in data structures. By reversing the prefix expression and using stack operations, complex expressions can be evaluated efficiently. This method is widely used in compilers and expression evaluators, making it a fundamental concept in computer science.
+
+---
+
+## Linear Queue Implementation Using Array
+
+### 🎯 Objective
+
+The objective of this program is to implement a Linear Queue using an array and demonstrate its fundamental operations such as enqueue, dequeue, and display. The program helps in understanding how queues work internally using array-based storage.
+
+---
+
+### 📘 Introduction
+
+A queue is a linear data structure that follows the FIFO (First In, First Out) principle.
+This means the element inserted first is removed first.
+
+In a linear queue, elements are inserted from one end called the rear and deleted from the other end called the front. This implementation uses a fixed-size array to store queue elements.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Queue Data Structure
+- A queue maintains two important pointers:
+    - Front – points to the first element
+    - Rear – points to the last element
+- Operations are performed based on these pointers.
+
+2️⃣ FIFO Principle
+- FIFO stands for First In, First Out:
+    - The first element added to the queue will be the first one removed
+    - This principle is commonly used in real-life scenarios like ticket counters and scheduling systems
+
+3️⃣ Array Implementation
+- In array-based queues:
+    - Memory size is fixed
+    - Elements are stored in contiguous memory locations
+    - Queue overflow occurs when the array is full
+    - Queue underflow occurs when the queue is empty
+
+---
+
+### ⚙️ Queue Operations
+#### 🔹 Enqueue (Insertion)
+- Adds an element at the rear end of the queue
+- Checks for queue overflow
+- Updates the rear pointer after insertion
+
+#### 🔹 Dequeue (Deletion)
+- Removes an element from the front end of the queue
+- Checks for queue underflow
+- Updates the front pointer after deletion
+- Resets front and rear when the queue becomes empty
+
+#### 🔹 Display
+- Displays all elements present in the queue
+- Traverses from front to rear
+- Shows queue contents in FIFO order
+
+---
+
+### 🚀 Working Principle
+- Initialize the queue with front and rear set to -1.
+- Perform enqueue operation to insert elements at the rear.
+- Perform dequeue operation to remove elements from the front.
+- Display operation shows current elements of the queue.
+- The program continues until the user chooses to exit.
+
+### 📌 Applications
+- CPU scheduling
+- Print spooling
+- Process management
+- Data buffering
+- Breadth First Search (BFS)
+
+---
+
+### 🏁 Conclusion
+
+The array implementation of a linear queue provides a clear understanding of queue fundamentals and FIFO behavior. Although simple and efficient for small datasets, it suffers from memory limitations. This implementation serves as a foundational concept for advanced queue structures like circular queues, dequeues, and priority queues.
