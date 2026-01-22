@@ -61,6 +61,63 @@ free(ptr);
 
 ---
 
+### 🧠 Algorithm: Dynamic Memory Allocation Using malloc() and calloc()
+
+1. Start
+2. Display menu
+    - 1. Using malloc()
+    - 2. Using calloc()
+    - 3. Exit
+3. Read the user’s choice
+4. If choice = 1, execute using_malloc()
+    - Else if choice = 2, execute using_calloc()
+    - Else if choice = 3, terminate the program
+    - Else display “Invalid Input”
+
+    #### Algorithm: using_malloc()
+
+5. Read the total number of elements n
+6. Allocate memory
+    - Allocate memory for n integers using malloc()
+7. Read elements
+    - Read n integer elements and store them in allocated memory
+8. Ask user for reallocation
+    - Read user choice (y or n)
+9. If reallocation is required
+    - Read new size new
+    - Reallocate memory using realloc()
+10. If new size > old size
+    - Read remaining elements from index n to new - 1
+11. Update size
+    - Set n = new
+12. Display all elements
+13. Free allocated memory
+    - Deallocate memory using free()
+14. Return to main menu
+
+    #### Algorithm: using_calloc()
+
+15. Read the total number of elements n
+16. Allocate memory
+    - Allocate memory for n integers using calloc()
+17. Read elements
+    - Read n integer elements and store them in allocated memory
+18. Ask user for reallocation
+    - Read user choice (y or n)
+19. If reallocation is required
+    - Read new size new
+    - Reallocate memory using realloc()
+20. If new size > old size
+    - Read remaining elements from index n to new - 1
+21. Update size
+    - Set n = new
+22. Display all elements
+23. Free allocated memory
+    - Deallocate memory using free()
+24. Stop
+
+---
+
 ### 🎯 Advantages of Dynamic Memory Allocation
 - Efficient use of memory
 - Flexible data size management
@@ -176,7 +233,7 @@ Else → Increment top and insert element
 
 ---
 
-### 2️⃣ Pop Operation
+#### 2️⃣ Pop Operation
 - Removes the **topmost element** from the stack
 - Before popping, it checks for **stack underflow**
 - Underflow occurs when `top == -1`
@@ -187,16 +244,67 @@ Else → Remove element and decrement top
 
 ---
 
-### 3️⃣ Peek Operation
+#### 3️⃣ Peek Operation
 - Displays the **top element** of the stack without removing it
 - Useful to check the current element at the top
 
 ---
 
-### 4️⃣ Display Operation
+#### 4️⃣ Display Operation
 - Displays all elements of the stack
 - Elements are shown from **top to bottom**
 - Helps visualize the stack structure
+
+---
+
+### 🧠 Algorithm: Array Implementation of Stack
+
+1. Start
+2. Define stack
+    - Declare an array stack[MAX]
+    - Initialize top = -1
+3. Display menu
+    - 1. push()
+    - 2. pop()
+    - 3. display()
+    - 4. exit()
+4. Read user choice
+5. If choice = 1, perform push()
+    - Else if choice = 2, perform pop()
+    - Else if choice = 3, perform display()
+    - Else if choice = 4, terminate the program
+    - Else display “Invalid input”
+6. Repeat steps 3 to 5 until choice = 4
+7. Stop
+
+    #### Algorithm: push() Operation
+
+8. Check stack overflow
+    - If top == MAX − 1, display “Stack is Full” and return
+9. Read element
+    - Input the element to be pushed
+10. Insert element
+    - Increment top
+    - Store element at stack[top]
+11. Return to main menu
+
+    #### Algorithm: pop() Operation
+
+12. Check stack underflow
+    - If top == −1, display “Stack is Empty” and return
+13. Remove element
+    - Store stack[top] in a variable
+    - Decrement top
+13. Display popped element
+13. Return to main menu
+
+    #### Algorithm: display() Operation
+
+14. Check if stack is empty
+    - If top == −1, display “Stack is Empty” and return
+14. Display stack elements
+    - Print elements from index 0 to top
+14. Return to main menu
 
 ---
 
@@ -269,7 +377,7 @@ Actual code implementation can be done using any programming language such as **
 
 ---
 
-### 🔑 Algorithm
+### 🔑 Algorithm(General)
 
 1. Initialize an empty stack for operators
 2. Scan the infix expression from **left to right**
@@ -282,6 +390,41 @@ Actual code implementation can be done using any programming language such as **
    - Push the current operator
 4. After scanning the expression, pop all remaining operators from the stack
 5. The resulting string is the **postfix expression**
+
+---
+
+### 🧠 Algorithm: Infix to Postfix Conversion Using Stack
+
+1. Start
+2. Declare stack
+    - Define a character stack with array data[MAX]
+    - Initialize top = -1
+3. Read infix expression
+    - Input the infix expression as a string
+4. Initialize postfix index
+    - Set j = 0 for postfix expression
+5. Scan infix expression from left to right
+    - Repeat for each character ch in the infix expression
+6. If character is an operand
+    - Append ch to postfix expression
+    - Increment j
+7. If character is ‘(’
+    - Push ch onto the stack
+8. If character is ‘)’
+    - Pop operators from stack and append to postfix until ‘(’ is found
+    - Pop and discard ‘(’ from stack
+9. If character is an operator
+    - While stack is not empty and precedence of stack top ≥ precedence of current operator
+        - Pop operator from stack and append to postfix
+    - Push current operator onto the stack
+10. Repeat steps 6 to 9 until end of infix expression
+11. Pop remaining operators
+    - While stack is not empty
+      - Pop operator and append to postfix
+12. Terminate postfix expression
+    - Append null character '\0'
+13. Display postfix expression
+14. Stop
 
 ---
 
@@ -364,7 +507,7 @@ This project clearly demonstrates how **stacks simplify expression conversion** 
 
 ---
 
-### 🔑 Algorithm (Reverse–Postfix Method)
+### 🔑 Algorithm (Reverse–Postfix Method) (General)
 
 1. Reverse the given infix expression
 2. Replace:
@@ -372,6 +515,45 @@ This project clearly demonstrates how **stacks simplify expression conversion** 
  - `)` with `(`
 3. Convert the modified expression to **postfix** using stack rules
 4. Reverse the postfix expression to obtain the **prefix expression**
+
+---
+
+### 🧠 Algorithm: Infix to Prefix Conversion Using Stack
+
+1. Start
+2. Declare stack
+    - Define a character stack with array data[MAX]
+    - Initialize top = -1
+3. Read infix expression
+    - Input the infix expression as a string
+4. Reverse the infix expression
+5. Replace parentheses
+    - Replace every '(' with ')'
+    - Replace every ')' with '('
+6. Initialize prefix index
+    - Set j = 0
+7. Scan the modified infix expression from left to right
+8. If character is an operand
+    - Append the character to prefix array
+    - Increment j
+9. If character is ‘(’
+    - Push it onto the stack
+10. If character is ‘)’
+    - Pop operators from stack and append to prefix until ‘(’ is found
+    - Pop and discard ‘(’ from stack
+11. If character is an operator
+    - While stack is not empty and precedence of stack top > precedence of current operator
+        - Pop operator from stack and append to prefix
+    - Push current operator onto the stack
+12. Repeat steps 8 to 11 until end of expression
+13. Pop remaining operators
+    - Pop all remaining operators from stack and append to prefix
+14. Terminate string
+    - Append null character '\0'
+15. Reverse the obtained expression
+    - Reverse the postfix expression to get prefix expression
+16. Display prefix expression
+17. Stop
 
 ---
 
@@ -476,6 +658,31 @@ Postfix expressions are especially useful for computation because they can be ev
 
 ---
 
+### 🧠 Algorithm: Evaluation of Postfix Expression Using Stack
+
+1. Start
+2. Declare stack
+    - Define an integer stack with array data[MAX]
+    -Initialize top = -1
+3. Read postfix expression
+    - Input the postfix expression as a string
+4. Scan postfix expression from left to right
+5. If character is an operand
+    - Convert character to integer
+    - Push the value onto the stack
+6. If character is an operator
+    - Pop the top element as op2
+    - Pop the next element as op1
+    - Perform the operation op1 operator op2
+    - Push the result onto the stack
+7. Repeat steps 5 and 6 until end of expression
+8. Pop final result
+    - Pop the remaining value from the stack
+9. Display the result
+10. Stop
+
+---
+
 ### 🎯 Applications
 - Expression evaluation in compilers
 - Calculator implementations
@@ -553,6 +760,32 @@ In prefix notation, the operator appears before its operands. This notation is w
     - Push the result back onto the stack.
 - After complete evaluation, the stack contains a single value.
 - This value represents the final result of the prefix expression.
+
+---
+
+### 🧠 Algorithm: Evaluation of Prefix Expression Using Stack
+
+1. Start
+2. Declare stack
+    - Define an integer stack with array data[MAX]
+    - Initialize top = -1
+3. Read prefix expression
+    - Input the prefix expression as a string
+4. Reverse the prefix expression
+5. Scan the reversed expression from left to right
+6. If character is an operand
+    - Convert character to integer
+    - Push the value onto the stack
+7. If character is an operator
+    - Pop the top element as op1
+    - Pop the next element as op2
+    - Perform the operation op2 operator op1
+    - Push the result onto the stack
+8. Repeat steps 6 and 7 until end of expression
+9. Pop final result
+    - Pop the remaining value from the stack
+10. Display the result
+11. Stop
 
 ---
 
@@ -634,6 +867,60 @@ In a linear queue, elements are inserted from one end called the rear and delete
 - Display operation shows current elements of the queue.
 - The program continues until the user chooses to exit.
 
+---
+
+### 🧠 Algorithm: Array Implementation of Linear Queue
+
+1. Start
+2. Declare queue
+    - Define an integer array queue[MAX]
+    - Initialize front = -1 and rear = -1
+3. Display menu
+    - 1. enqueue()
+    - 2. dequeue()
+    - 3. display()
+    - 4. exit()
+4. Read user choice
+5. If choice = 1, perform enqueue()
+    - Else if choice = 2, perform dequeue()
+    - Else if choice = 3, perform display()
+    - Else if choice = 4, terminate the program
+    - Else display “Invalid choice”
+6. Repeat steps 3 to 5 until choice = 4
+7. Stop
+
+    #### Algorithm: enqueue() Operation
+
+8. Check queue overflow
+    - If rear == MAX − 1, display “Queue is Full” and return
+9. Check first insertion
+    - If front == −1, set front = 0
+10. Insert element
+    - Increment rear
+    - Read the element
+    - Store it at queue[rear]
+11. Return to main menu
+
+    #### Algorithm: dequeue() Operation
+
+12. Check queue underflow
+    - If front == −1 or front > rear, display “Queue is Empty” and return
+13. Delete element
+    - Display element at queue[front]
+    - Increment front
+14. Reset queue
+    - If front > rear, set front = −1 and rear = −1
+15. Return to main menu
+
+    #### Algorithm: display() Operation
+
+16. Check if queue is empty
+    - If front == −1, display “Queue is Empty” and return
+17. Display elements
+    - Print elements from index front to rear
+18. Return to main menu
+
+---
 ### 📌 Applications
 - CPU scheduling
 - Print spooling
