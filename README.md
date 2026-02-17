@@ -933,3 +933,139 @@ In a linear queue, elements are inserted from one end called the rear and delete
 ### 🏁 Conclusion
 
 The array implementation of a linear queue provides a clear understanding of queue fundamentals and FIFO behavior. Although simple and efficient for small datasets, it suffers from memory limitations. This implementation serves as a foundational concept for advanced queue structures like circular queues, dequeues, and priority queues.
+
+---
+
+## Circular Queue Implementation Using Array
+
+### 🎯 Objective
+The objective of this program is to implement a Circular Queue using an array and demonstrate its fundamental operations such as enqueue, dequeue, and display.
+This program helps in understanding how circular queues overcome the memory limitation problem of linear queues.
+
+---
+
+### 📘 Introduction
+A circular queue is a linear data structure that follows the FIFO (First In, First Out) principle.
+
+Unlike a linear queue, a circular queue connects the last position of the array back to the first position, forming a circle. This allows better utilization of memory by reusing empty spaces created after deletion.
+
+In this implementation, a fixed-size array is used along with two pointers:
+- Front – points to the first element
+- Rear – points to the last element
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Circular Queue Structure
+- Uses an array of fixed size
+- Maintains two pointers: front and rear
+- Uses modulo operation % MAX for circular movement
+
+2️⃣ FIFO Principle
+- The element inserted first will be removed first
+- Insertion happens at rear
+- Deletion happens at front
+
+3️⃣ Circular Behavior
+- When rear reaches the last index, it moves to index 0
+- Overflow condition:
+```c
+(rear + 1) % MAX == front
+```
+- Underflow condition:
+```c
+front == -1
+```
+---
+
+### ⚙️ Circular Queue Operations
+🔹 Enqueue (Insertion)
+- Adds an element at the rear
+- Checks for queue overflow
+- Updates rear using modulo operation
+
+🔹 Dequeue (Deletion)
+- Removes an element from the front
+- Checks for queue underflow
+- Updates front using modulo operation
+- Resets front and rear if queue becomes empty
+
+🔹 Display
+- Displays all elements in circular order
+- Traverses from front to rear using modulo operation
+
+---
+
+### 🚀 Working Principle
+- Initialize front and rear to -1
+- Perform enqueue to insert elements at rear
+- Perform dequeue to remove elements from front
+- Display shows elements in circular order
+- Continue until user selects exit
+
+---
+
+### 🧠 Algorithm: Array Implementation of Circular Queue
+1. Start
+2. Declare circular queue
+    - Define integer array queue[MAX]
+    - Initialize front = -1 and rear = -1
+3. Display menu
+    1. enqueue()
+    1. dequeue()
+    1. display()
+    1. exit()
+4. Read user choice
+5. If choice = 1, perform enqueue()
+    - Else if choice = 2, perform dequeue()
+    - Else if choice = 3, perform display()
+    - Else if choice = 4, terminate program
+    - Else display “Invalid choice”
+6. Repeat steps 3 to 5 until choice = 4
+7. Stop
+
+    #### Algorithm: enqueue() Operation
+8. Check queue overflow
+    - If (rear + 1) % MAX == front, display “Queue is Full” and return
+9. Check first insertion
+    - If front == -1, set front = 0 and rear = 0
+    - Else set rear = (rear + 1) % MAX
+10. Insert element
+    - Read item
+    - Store it at queue[rear]
+11. Return to main menu
+
+    #### Algorithm: dequeue() Operation
+12. Check queue underflow
+    - If front == -1, display “Queue is Empty” and return
+13. Delete element
+    - Display queue[front]
+14. Check if only one element
+    - If front == rear, set front = -1 and rear = -1
+    - Else set front = (front + 1) % MAX
+15. Return to main menu
+
+    #### Algorithm: display() Operation
+16. Check if queue is empty
+    - If front == -1, display “Queue is Empty” and return
+17. Display elements
+    - Set i = front
+    - Print queue[i]
+    - Repeat i = (i + 1) % MAX until i == rear
+18. Return to main menu
+
+---
+
+### 📌 Applications
+- CPU scheduling
+- Traffic management systems
+- Memory buffering
+- Streaming data handling
+- Producer-consumer problems
+
+---
+
+### 🏁 Conclusion
+The array implementation of a circular queue efficiently utilizes memory by allowing wrap-around movement of pointers. It eliminates the major drawback of linear queues where unused spaces cannot be reused. This concept forms the foundation for more advanced data structures and real-world queue management systems.
+
+---
