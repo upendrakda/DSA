@@ -1293,3 +1293,79 @@ GCD(a, b) = GCD(b, a % b)
 The recursive Euclidean algorithm is an efficient method to compute the GCD of two numbers. It reduces the problem size at each step and terminates when the remainder becomes zero, providing a fast and elegant solution.
 
 ---
+
+## Tower of Hanoi Using Recursion
+
+### 📘 Introduction
+The Tower of Hanoi is a classic recursive problem that involves moving disks from one rod to another following specific rules.
+
+🔹 Rules:
+1. Only one disk can be moved at a time.
+2. A larger disk cannot be placed on a smaller disk.
+3. Only the top disk of a rod can be moved.
+
+The goal is to move all disks from the source rod to the destination rod using an auxiliary rod.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Recursion
+- The problem is solved by breaking it into smaller subproblems.
+- To move n disks:
+    - Move n−1 disks to auxiliary rod
+    - Move the nth disk to destination
+    - Move n−1 disks from auxiliary to destination
+
+2️⃣ Base Condition
+- If n == 1, move the disk directly from source to destination.
+
+3️⃣ Recursive Strategy
+- T(n) = 2T(n−1) + 1
+- Minimum moves required = 2ⁿ − 1
+
+---
+
+### ⚙️ Working Principle
+- Read number of disks from the user
+- If number is less than or equal to zero, display error message
+- Otherwise, call recursive function
+- Function prints steps required to move all disks
+- Each recursive call reduces the number of disks
+
+---
+
+### 🧠 Algorithm: Tower of Hanoi Using Recursion
+1. Start
+2. Declare recursive function towerOfHanoi(n, source, destination, auxiliary)
+3. In main()
+- Read number of disks n
+4. If n <= 0
+- Display “Number of disks must be positive”
+5. Else
+- Call towerOfHanoi(n, 'A', 'C', 'B')
+6. Stop
+
+    #### Algorithm: towerOfHanoi(n, source, destination, auxiliary)
+7. If n == 1
+- Print “Move disk 1 from source to destination”
+- Return
+8. Call towerOfHanoi(n − 1, source, auxiliary, destination)
+9. Print “Move disk n from source to destination”
+10. Call towerOfHanoi(n − 1, auxiliary, destination, source)
+11. Return
+
+---
+
+### 📌 Applications
+- Understanding recursion concepts
+- Algorithm design and analysis
+- Problem-solving using divide-and-conquer
+- Used in teaching stack and recursion behavior
+
+---
+
+### 🏁 Conclusion
+
+The Tower of Hanoi problem is a classic example of recursion where a complex problem is solved by dividing it into smaller subproblems. The recursive approach provides a clear and elegant solution, demonstrating the power of divide-and-conquer techniques.
+
+---
