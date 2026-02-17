@@ -1142,3 +1142,79 @@ In this program, factorial is calculated using recursion, where a function calls
 Recursion provides a simple and elegant way to calculate factorial by breaking the problem into smaller subproblems. The base condition ensures termination, and each recursive call reduces the value of n until it reaches 1.
 
 ---
+
+## Fibonacci Sequence Using Recursion
+
+### 📘 Introduction
+The Fibonacci sequence is a series of numbers where each number is the sum of the two preceding numbers.
+
+The sequence starts as: 0,1,1,2,3,5,8,13,...
+
+Mathematically:
+- F(0) = 0
+- F(1) = 1
+- F(n) = F(n−1) + F(n−2)
+
+In this program, Fibonacci numbers are generated using recursion, where the function calls itself to compute previous values.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Recursion
+- A function calls itself
+- Problem is divided into smaller subproblems
+- Requires base condition to stop recursion
+
+2️⃣ Base Cases
+- If n == 0, return 0
+- If n == 1, return 1
+
+3️⃣ Recursive Case
+- fibonacci(n) = fibonacci(n−1) + fibonacci(n−2)
+- Function keeps calling itself until it reaches base cases
+
+---
+
+### ⚙️ Working Principle
+- Read number of terms from the user
+- If input is less than or equal to 0, display error message
+- Otherwise, use a loop to print Fibonacci numbers
+- Each term is calculated using recursive function
+- Display the complete Fibonacci sequence
+
+---
+
+### 🧠 Algorithm: Fibonacci Sequence Using Recursion
+1. Start
+2. Declare recursive function fibonacci(n)
+3. In main()
+- Read number of terms n
+4. If n <= 0
+- Display “Enter a positive number”
+5. Else
+- For i = 0 to n − 1
+    - Print fibonacci(i)
+6. Stop
+
+    #### Algorithm: fibonacci(n) Function
+7. If n == 0
+- Return 0
+8. Else if n == 1
+- Return 1
+9. Else
+- Return fibonacci(n − 1) + fibonacci(n − 2)
+
+---
+
+### 📌 Applications
+- Mathematical modeling
+- Dynamic programming concepts
+- Algorithm analysis
+- Population growth modeling
+
+---
+
+### 🏁 Conclusion
+Recursion provides a simple way to generate Fibonacci numbers by defining the problem in terms of smaller subproblems. Although easy to understand, recursive Fibonacci is less efficient for large inputs compared to iterative or dynamic programming approaches.
+
+---
