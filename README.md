@@ -1069,3 +1069,76 @@ front == -1
 The array implementation of a circular queue efficiently utilizes memory by allowing wrap-around movement of pointers. It eliminates the major drawback of linear queues where unused spaces cannot be reused. This concept forms the foundation for more advanced data structures and real-world queue management systems.
 
 ---
+
+## Factorial of a Number Using Recursion
+
+### 📘 Introduction
+Factorial of a non-negative integer n is defined as:
+𝑛!=𝑛×(𝑛−1)×(𝑛−2)×...×1
+
+Special cases:
+- 0! = 1
+- 1! = 1
+
+In this program, factorial is calculated using recursion, where a function calls itself repeatedly until a base condition is satisfied.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Recursion
+- A technique where a function calls itself
+- Must have a base condition to stop recursion
+- Each recursive call reduces the problem size
+
+2️⃣ Base Condition
+- If n == 0 or n == 1, return 1
+- Prevents infinite recursion
+
+3️⃣ Recursive Case
+- factorial(n) = n × factorial(n − 1)
+- Function keeps calling itself until it reaches base condition
+
+---
+
+### ⚙️ Working Principle
+- Read a number from the user
+- If the number is negative, factorial is not defined
+- Otherwise, call recursive function
+- Function keeps multiplying numbers until it reaches 1
+- Display the final result
+
+---
+
+### 🧠 Algorithm: Factorial Using Recursion
+1. Start
+2. Declare recursive function factorial(n)
+3. In main()
+- Read number num
+4. If num < 0
+- Display “Factorial not defined for negative numbers”
+5. Else
+- Call factorial(num)
+- Display result
+6. Stop
+
+    #### Algorithm: factorial(n) Function
+
+7. If n == 0 or n == 1
+- Return 1
+8. Else
+-Return n × factorial(n − 1)
+
+---
+
+### 📌 Applications
+- Mathematical computations
+- Permutations and combinations
+- Probability calculations
+- Algorithm analysis
+
+---
+
+### 🏁 Conclusion
+Recursion provides a simple and elegant way to calculate factorial by breaking the problem into smaller subproblems. The base condition ensures termination, and each recursive call reduces the value of n until it reaches 1.
+
+---
