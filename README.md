@@ -1218,3 +1218,78 @@ In this program, Fibonacci numbers are generated using recursion, where the func
 Recursion provides a simple way to generate Fibonacci numbers by defining the problem in terms of smaller subproblems. Although easy to understand, recursive Fibonacci is less efficient for large inputs compared to iterative or dynamic programming approaches.
 
 ---
+
+## GCD of Two Numbers Using Recursion
+
+### 📘 Introduction
+The Greatest Common Divisor (GCD) of two numbers is the largest positive integer that divides both numbers without leaving a remainder.
+
+This program calculates GCD using the Euclidean Algorithm with recursion.
+
+Mathematical rule: GCD(a,b)=GCD(b,amodb)
+
+The process continues until the second number becomes zero.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Euclidean Algorithm
+- Based on the principle:
+```mathematica
+GCD(a, b) = GCD(b, a % b)
+```
+- If b = 0, then GCD = a
+
+2️⃣ Recursion
+- Function calls itself with smaller values
+- Each call reduces the problem size
+
+3️⃣ Base Condition
+- If b == 0, return a
+- Ensures termination of recursion
+
+---
+
+### ⚙️ Working Principle
+- Read two numbers from the user
+- Check if numbers are positive
+- Call recursive gcd() function
+- Function repeatedly replaces (a, b) with (b, a % b)
+- When b becomes 0, return a
+- Display the result
+
+---
+
+### 🧠 Algorithm: GCD Using Recursion
+1. Start
+2. Declare recursive function gcd(a, b)
+3. In main()
+- Read two integers num1 and num2
+4. If num1 < 0 or num2 < 0
+- Display “Enter positive integers only”
+5. Else
+- Call gcd(num1, num2)
+- Display result
+6. Stop
+
+    #### Algorithm: gcd(a, b) Function
+7. If b == 0
+- Return a
+
+8. Else
+- Return gcd(b, a % b)
+
+---
+
+### 📌 Applications
+- Simplifying fractions
+- Cryptography (RSA algorithm)
+- Number theory problems
+
+---
+
+### 🏁 Conclusion
+
+The recursive Euclidean algorithm is an efficient method to compute the GCD of two numbers. It reduces the problem size at each step and terminates when the remainder becomes zero, providing a fast and elegant solution.
+
+---
