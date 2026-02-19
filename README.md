@@ -1932,3 +1932,102 @@ The stack implemented using a linked list provides dynamic memory allocation and
 
 ---
 
+## Queue Implementation Using Linked List
+
+### 📘 Introduction
+A Queue is a linear data structure that follows the FIFO (First In, First Out) principle.
+The element inserted first is the first one to be removed.
+
+In this program, the queue is implemented using a linked list, which allows dynamic memory allocation and avoids fixed size limitations.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ FIFO Principle
+- Enqueue → Insert element at the rear
+- Dequeue → Remove element from the front
+
+2️⃣ Node Structure
+Each node contains:
+- data
+- next pointer
+
+3️⃣ Front and Rear Pointers
+- front → Points to the first element
+- rear → Points to the last element
+- If both are NULL, the queue is empty
+
+4️⃣ Dynamic Memory Allocation
+- Memory allocated using malloc()
+- Memory released using free()
+
+---
+
+### 🧠 Algorithm: Queue Using Linked List
+1. Start
+2. Define structure Node with fields data and next
+3. Initialize front = NULL and rear = NULL
+4. Display menu:
+    1. Enqueue
+    2. Dequeue
+    3. Display
+    4. Exit
+5. Read user choice
+6. Perform selected operation
+7. Repeat until choice = 4
+8. Stop
+
+    #### Algorithm: Enqueue(value)
+1. Allocate memory for new node
+2. If memory allocation fails
+    - Display “Queue Overflow”
+    - Return
+3. Set newNode->data = value
+4. Set newNode->next = NULL
+5. If rear == NULL (queue is empty)
+    - Set front = rear = newNode
+6. Else
+    - Set rear->next = newNode
+    - Set rear = newNode
+7. Display success message
+8. Return
+
+    #### Algorithm: Dequeue()
+1. If front == NULL
+    - Display “Queue Underflow”
+    - Return
+2. Store front in temp
+3. Display dequeued element
+4. Set front = front->next
+5. If front == NULL
+    - Set rear = NULL
+6. Free temp
+7. Return
+
+    #### Algorithm: Display()
+1. If front == NULL
+    - Display “Queue is empty”
+    - Return
+2. Set temp = front
+3. While temp != NULL
+    - Print temp->data
+    - Set temp = temp->next
+4. Return
+
+---
+
+### 📌 Applications of Queue
+- CPU scheduling
+- Printer queue management
+- Breadth First Search (BFS)
+- Call center systems
+- Resource sharing systems
+
+---
+
+### 🏁 Conclusion
+
+The queue implemented using a linked list provides efficient enqueue and dequeue operations in O(1) time complexity. It dynamically allocates memory, eliminating fixed-size limitations of array-based queues while maintaining the FIFO principle effectively.
+
+---
+
