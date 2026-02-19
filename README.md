@@ -1369,3 +1369,152 @@ The goal is to move all disks from the source rod to the destination rod using a
 The Tower of Hanoi problem is a classic example of recursion where a complex problem is solved by dividing it into smaller subproblems. The recursive approach provides a clear and elegant solution, demonstrating the power of divide-and-conquer techniques.
 
 ---
+
+## Singly Linked List Implementation
+
+### 📘 Introduction
+A Singly Linked List is a linear data structure where each element (node) contains:
+- Data – the value stored in the node
+- Next pointer – address of the next node
+Unlike arrays, linked lists use dynamic memory allocation and do not require contiguous memory locations.
+
+In this program, different operations such as node creation, insertion, deletion, and display are implemented.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Node Structure
+- Each node contains:
+    - data field
+    - next pointer
+
+2️⃣ Head Pointer
+- Points to the first node of the list
+- If head = NULL, the list is empty
+
+3️⃣ Dynamic Memory Allocation
+- Nodes are created using malloc()
+- Memory is freed using free() after deletion
+
+4️⃣ Traversal
+- Accessing elements requires moving node by node using the next pointer
+
+---
+
+### ⚙️ Operations Performed
+- Insert at Beginning
+- Insert at End
+- Insert at Specific Position
+- Delete from Beginning
+- Delete from End
+- Delete from Specific Position
+- Display List
+
+---
+
+### 🧠 Algorithm: Singly Linked List Implementation
+1. Start
+2. Define structure Node with fields data and next
+3. Initialize head = NULL
+4. Display menu
+    1. Insert at Beginning
+    2. Insert at End
+    3. Insert at Position
+    4. Delete at Beginning
+    5. Delete at End
+    6. Delete at Position
+    7. Display
+    8. Exit
+5. Read user choice
+6. Perform selected operation
+7. Repeat steps 4 to 6 until choice = 8
+8. Stop
+
+    #### Algorithm: createNode(value)
+1. Allocate memory for new node
+2. Set newNode->data = value
+3. Set newNode->next = NULL
+4. Return new node
+
+    #### Algorithm: Insert at Beginning
+1. Create new node
+2. Set newNode->next = head
+3. Set head = newNode
+4. Return
+
+    #### Algorithm: Insert at End
+1. Create new node
+2. If head == NULL
+    - Set head = newNode
+    - Return
+3. Traverse list until last node
+4. Set last node’s next = newNode
+5. Return
+
+    #### Algorithm: Insert at Position
+1.If position = 1
+    - Call Insert at Beginning
+2.Traverse list up to position − 1
+3.If position invalid
+    - Display error
+4.Set newNode->next = temp->next
+5.Set temp->next = newNode
+6.Return
+
+    #### Algorithm: Delete at Beginning
+1. If head == NULL
+    - Display “List is empty”
+2. Store head in temp
+3. Set head = head->next
+4. Free temp
+5. Return
+
+    #### Algorithm: Delete at End
+1. If head == NULL
+    - Display “List is empty”
+2. If only one node
+    - Free head
+    - Set head = NULL
+3. Traverse to last node
+4. Set second-last node’s next = NULL
+5. Free last node
+6. Return
+
+    #### Algorithm: Delete at Position
+1. If head == NULL
+    - Display “List is empty”
+2. If position = 1
+    - Call Delete at Beginning
+3. Traverse to desired position
+4. If position invalid
+    - Display error
+5. Set prev->next = temp->next
+6. Free temp
+7. Return
+
+    #### Algorithm: Display
+1. If head == NULL
+    - Display “List is empty”
+2. Set temp = head
+3. While temp != NULL
+    - Print temp->data
+    - Move temp = temp->next
+4. Print NULL
+5. Return
+
+---
+
+### 📌 Applications
+- Dynamic memory management
+- Implementing stacks and queues
+- Polynomial representation
+- Graph adjacency list
+- Music playlist and browser history
+
+---
+
+### 🏁 Conclusion
+
+The singly linked list provides flexible and dynamic storage compared to arrays. It allows efficient insertion and deletion operations without shifting elements. This implementation helps in understanding pointer manipulation and dynamic memory allocation concepts in data structures.
+
+---
