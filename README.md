@@ -1518,3 +1518,161 @@ In this program, different operations such as node creation, insertion, deletion
 The singly linked list provides flexible and dynamic storage compared to arrays. It allows efficient insertion and deletion operations without shifting elements. This implementation helps in understanding pointer manipulation and dynamic memory allocation concepts in data structures.
 
 ---
+
+## Doubly Linked List Implementation
+
+### 📘 Introduction
+A Doubly Linked List (DLL) is a linear data structure where each node contains:
+- Data – the value stored in the node
+- Prev pointer – address of the previous node
+- Next pointer – address of the next node
+Unlike singly linked lists, DLL allows traversal in both directions. This makes insertion and deletion more flexible, especially at the end or in between nodes.
+
+In this program, various operations such as node creation, insertion, deletion, and display are implemented.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Node Structure
+- Each node contains: data, prev, and next pointers
+
+2️⃣ Head Pointer
+- Points to the first node
+- head = NULL indicates an empty list
+
+3️⃣ Bidirectional Traversal
+- Nodes can be traversed forward using next and backward using prev
+
+4️⃣ Dynamic Memory Allocation
+- Nodes are allocated using malloc()
+- Memory is freed using free()
+
+---
+
+### ⚙️ Operations Performed
+- Insert at Beginning
+- Insert at End
+- Insert at Specific Position
+- Delete from Beginning
+- Delete from End
+- Delete from Specific Position
+- Display List
+
+---
+
+### 🧠 Algorithm: Doubly Linked List Implementation
+1. Start
+2. Define structure Node with fields data, prev, and next
+3. Initialize head = NULL
+4. Display menu:
+    1. Insert at Beginning
+    2. Insert at End
+    3. Insert at Position
+    4. Delete at Beginning
+    5. Delete at End
+    6. Delete at Position
+    7. Display
+    8. Exit
+5. Read user choice
+6. Perform the selected operation
+7. Repeat steps 4–6 until choice = 8
+8. Stop
+
+    #### Algorithm: createNode(value)
+1. Allocate memory for new node
+2. Set newNode->data = value
+3. Set newNode->prev = NULL
+4. Set newNode->next = NULL
+5. Return new node
+
+    #### Algorithm: Insert at Beginning
+1. Create new node
+2. If head != NULL
+    - Set head->prev = newNode
+    - Set newNode->next = head
+3. Set head = newNode
+4. Return
+
+#### Algorithm: Insert at End
+1. Create new node
+2. If head == NULL
+    - Set head = newNode
+    - Return
+3. Traverse to last node
+4. Set last->next = newNode
+5. Set newNode->prev = last
+6. Return
+
+    #### Algorithm: Insert at Position
+1. If position = 1
+    - Call Insert at Beginning
+2. Traverse to position − 1
+3. If position invalid
+    - Display error
+4. Set newNode->next = temp->next
+5. Set newNode->prev = temp
+6. If temp->next != NULL
+    - Set temp->next->prev = newNode
+7. Set temp->next = newNode
+8. Return
+
+    #### Algorithm: Delete at Beginning
+1. If head == NULL
+    - Display “List is empty”
+2. Store head in temp
+3. Set head = head->next
+4. If head != NULL
+    - Set head->prev = NULL
+5. Free temp
+6. Return
+
+    #### Algorithm: Delete at End
+1. If head == NULL
+    - Display “List is empty”
+2. If only one node
+    - Free head
+    - Set head = NULL
+3. Traverse to last node
+4. Set last->prev->next = NULL
+5. Free last node
+6. Return
+
+    #### Algorithm: Delete at Position
+1. If head == NULL
+    - Display “List is empty”
+2. If position = 1
+    - Call Delete at Beginning
+3. Traverse to desired position
+4. If position invalid
+    - Display error
+5. Set temp->next->prev = temp->prev (if temp->next != NULL)
+6. Set temp->prev->next = temp->next (if temp->prev != NULL)
+7. Free temp
+8. Return
+
+    #### Algorithm: Display
+1. If head == NULL
+    - Display “List is empty”
+2. Set temp = head
+3. While temp != NULL
+    - Print temp->data
+    - Move temp = temp->next
+4. Print NULL
+5. Return
+
+---
+
+### 📌 Applications
+- Implementation of deque
+- Browser history navigation
+- Undo/redo functionality in editors
+- Memory-efficient data structures
+- Doubly-linked graph adjacency lists
+
+---
+
+### 🏁 Conclusion
+
+Doubly linked lists provide bidirectional traversal, making insertion and deletion more flexible than singly linked lists. This implementation demonstrates dynamic memory management, pointer manipulation, and advanced linked list operations effectively.
+
+---
