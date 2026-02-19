@@ -2031,3 +2031,93 @@ The queue implemented using a linked list provides efficient enqueue and dequeue
 
 ---
 
+## Bubble Sort Implementation
+
+### 📘 Introduction
+Bubble Sort is a simple comparison-based sorting algorithm.
+It repeatedly compares adjacent elements and swaps them if they are in the wrong order.
+
+With each pass, the largest unsorted element “bubbles up” to its correct position at the end of the array.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Comparison of Adjacent Elements
+- Compare arr[j] and arr[j+1]
+- Swap if arr[j] > arr[j+1]
+
+2️⃣ Multiple Passes
+- After each pass, the largest element is placed at the correct position
+
+3️⃣ Optimization (Swapped Flag)
+- If no swapping happens in a pass, the array is already sorted
+- The algorithm stops early
+
+4️⃣ In-Place Sorting
+- Does not require extra memory
+
+---
+
+### 🧠 Algorithm: Bubble Sort
+1. Start
+2. Read number of elements n
+3. Read array elements
+4. Repeat for i = 0 to n-2
+    - Set swapped = 0
+    - For j = 0 to n-i-2
+        - If arr[j] > arr[j+1]
+            - Swap elements
+            - Set swapped = 1
+    - If swapped == 0
+        - Break loop (array is sorted)
+5. Display sorted array
+6. Stop
+
+---
+
+### 🔁 Working Example
+For array:  
+5 3 8 4 2
+
+Pass 1:  
+5 3 → swap → 3 5  
+5 8 → no swap  
+8 4 → swap → 4 8  
+8 2 → swap → 2 8  
+Array becomes: 3 5 4 2 8  
+
+Pass 2:  
+3 5 → no swap  
+5 4 → swap  
+5 2 → swap  
+Array becomes: 3 4 2 5 8  
+
+And so on, until sorted.
+
+---
+
+### ⏱ Time Complexity
+- Best Case: O(n) (Already sorted, due to swapped flag)
+- Average Case: O(n²)
+- Worst Case: O(n²)
+
+---
+
+### 💾 Space Complexity
+- O(1) (In-place sorting)
+
+---
+
+### 📌 Applications
+- Educational purposes (easy to understand)
+- Small datasets
+- When simplicity is more important than performance
+
+---
+
+### 🏁 Conclusion
+
+Bubble Sort is one of the simplest sorting algorithms. Although it is not efficient for large datasets, it is useful for understanding the concept of sorting and algorithm design. The optimized version improves performance by stopping early if the array becomes sorted.
+
+---
+
