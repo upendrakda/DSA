@@ -2221,3 +2221,96 @@ Selection Sort repeatedly selects the minimum element and places it in its corre
 
 ---
 
+## Shell Sort Implementation
+
+### 📘 Introduction
+Shell Sort is an advanced version of Insertion Sort that improves performance by allowing the exchange of far-apart elements.
+
+Instead of comparing only adjacent elements, it compares elements separated by a gap, which gradually reduces to 1.
+
+When the gap becomes 1, the algorithm behaves like a normal insertion sort — but by then, the array is mostly sorted, making it efficient.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Gap Method
+- Start with a large gap (n/2)
+- Reduce the gap by half each time
+- Continue until gap becomes 1
+
+2️⃣ Gapped Insertion Sort
+- For each gap, perform insertion sort on elements separated by that gap
+
+3️⃣ Improvement Over Insertion Sort
+- Reduces large element movements early
+- Improves overall efficiency
+
+---
+
+### 🧠 Algorithm: Shell Sort
+1. Start
+2. Read number of elements n
+3. Read array elements
+4. Set gap = n / 2
+5. While gap > 0
+    - For i = gap to n - 1
+        - Store temp = arr[i]
+        - Set j = i
+        - While j >= gap AND arr[j - gap] > temp
+            - Shift arr[j] = arr[j - gap]
+            - Set j = j - gap
+        - Place temp at position j
+    - Reduce gap: gap = gap / 2
+6. Display sorted array
+7. Stop
+
+---
+
+### 🔁 Working Example
+For array:  
+12 34 54 2 3
+
+Initial gap = 5/2 = 2
+
+Gap = 2:  
+Compare elements at distance 2  
+Array becomes partially sorted  
+
+Gap = 1:  
+Normal insertion sort applied  
+Final sorted array obtained  
+
+Result → 2 3 12 34 54  
+
+---
+
+### ⏱ Time Complexity
+- Best Case: O(n log n)
+- Average Case: Between O(n log n) and O(n²)
+- Worst Case: O(n²) (depends on gap sequence)
+
+---
+
+### 💾 Space Complexity
+- O(1) (In-place sorting)
+
+---
+
+### 📌 Advantages
+- Faster than Bubble, Selection, and Insertion Sort
+- Efficient for medium-sized datasets
+- Simple implementation
+
+---
+
+### ⚠️ Disadvantages
+- Not stable
+- Performance depends on gap sequence
+
+---
+
+### 🏁 Conclusion
+
+Shell Sort improves insertion sort by allowing the exchange of distant elements first. By gradually reducing the gap, it efficiently sorts the array with better performance than basic quadratic sorting algorithms.
+
+---
