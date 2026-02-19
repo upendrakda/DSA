@@ -1676,3 +1676,167 @@ In this program, various operations such as node creation, insertion, deletion, 
 Doubly linked lists provide bidirectional traversal, making insertion and deletion more flexible than singly linked lists. This implementation demonstrates dynamic memory management, pointer manipulation, and advanced linked list operations effectively.
 
 ---
+
+## Circular Linked List Implementation
+
+### 📘 Introduction
+A Circular Linked List (CLL) is a type of linked list where the last node points back to the first node (head), forming a circular structure.
+
+Unlike a singly linked list:
+- There is no NULL at the end.
+- Traversal continues until we reach the head again.
+
+In this program, the following operations are implemented:
+- Node Creation
+- Insertion (Beginning, End, Position)
+- Deletion (Beginning, End, Position)
+- Display
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Node Structure
+- Each node contains:
+    - data
+    - next pointer
+
+2️⃣ Head Pointer
+- Points to the first node
+- If head == NULL, the list is empty
+
+3️⃣ Circular Nature
+- Last node’s next pointer points to head
+- Traversal uses a do-while loop
+
+4️⃣ Dynamic Memory Allocation
+- Nodes are created using malloc()
+- Deleted using free()
+
+---
+
+### 🧠 Algorithm: Circular Linked List Implementation
+1. Start
+2. Define structure Node with fields data and next
+3. Initialize head = NULL
+4. Display menu:
+    1. Insert at Beginning
+    2. Insert at End
+    3. Insert at Position
+    4. Delete at Beginning
+    5. Delete at End
+    6. Delete at Position
+    7. Display
+    8. Exit
+5. Read user choice
+6. Perform selected operation
+7. Repeat until choice = 8
+8. Stop
+
+    #### Algorithm: createNode(value)
+1. Allocate memory for new node
+2. Set newNode->data = value
+3. Set newNode->next = NULL
+4. Return new node
+
+    #### Algorithm: Insert at Beginning
+1. Create new node
+2. If head == NULL
+    - Set head = newNode
+    - Set newNode->next = head
+3. Else
+    - Traverse to last node (whose next is head)
+    - Set newNode->next = head
+    - Set last->next = newNode
+    - Set head = newNode
+4. Return
+
+    #### Algorithm: Insert at End
+1. Create new node
+2. If head == NULL
+    - Set head = newNode
+    - Set newNode->next = head
+3. Else
+    - Traverse to last node
+    - Set last->next = newNode
+    - Set newNode->next = head
+4. Return
+
+    #### Algorithm: Insert at Position
+1. If position = 1
+    - Call Insert at Beginning
+2. If head == NULL
+    - Display “List is empty”
+3. Traverse to position − 1
+4. If position invalid
+    - Display error
+5. Create new node
+6. Set newNode->next = temp->next
+7. Set temp->next = newNode
+8. Return
+
+    #### Algorithm: Delete at Beginning
+1. If head == NULL
+    - Display “List is empty”
+2. If only one node (head->next == head)
+    - Free head
+    - Set head = NULL
+3. Else
+    - Traverse to last node
+    - Store head in temp
+    - Set head = head->next
+    - Set last->next = head
+    - Free temp
+4. Return
+
+    #### Algorithm: Delete at End
+1. If head == NULL
+    - Display “List is empty”
+2. If only one node
+    - Free head
+    - Set head = NULL
+3. Else
+    - Traverse to last node (keep track of previous)
+    - Set prev->next = head
+    - Free last node
+4. Return
+
+    #### Algorithm: Delete at Position
+1. If head == NULL
+    - Display “List is empty”
+2. If position = 1
+    - Call Delete at Beginning
+3. Traverse to desired position
+4. If position invalid
+    - Display error
+5. Set prev->next = temp->next
+6. Free temp
+7. Return
+
+    #### Algorithm: Display
+1. If head == NULL
+    - Display “List is empty”
+2. Set temp = head
+3. Repeat
+    - Print temp->data
+    - Set temp = temp->next  
+    Until temp == head
+4. Print “(head)”
+5. Return
+
+---
+
+### 📌 Applications
+- Round-robin scheduling
+- Circular queue implementation
+- Multiplayer turn-based games
+- Buffer management systems
+- Josephus problem
+
+---
+
+### 🏁 Conclusion
+
+A Circular Linked List connects the last node back to the first node, forming a loop. It eliminates NULL termination and is efficient for cyclic processes like scheduling. This implementation demonstrates insertion, deletion, and traversal operations using proper pointer manipulation.
+
+---
+
