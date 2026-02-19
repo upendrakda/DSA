@@ -2121,3 +2121,103 @@ Bubble Sort is one of the simplest sorting algorithms. Although it is not effici
 
 ---
 
+## Selection Sort Implementation
+
+### 📘 Introduction
+Selection Sort is a simple comparison-based sorting algorithm.
+It works by repeatedly selecting the smallest element from the unsorted portion of the array and placing it at the beginning.
+
+Unlike Bubble Sort, it performs minimum swaps — at most one swap per pass.
+
+---
+
+### 🧠 Core Concept
+1️⃣ Divide the array into two parts:
+-  Sorted portion (left side)
+-  Unsorted portion (right side)
+
+2️⃣ In each pass:
+-  Find the smallest element from the unsorted portion
+-  Swap it with the first unsorted element
+
+3️⃣ Repeat until the entire array is sorted
+
+---
+
+### 🧠 Algorithm: Selection Sort
+1. Start
+2. Read number of elements n
+3. Read array elements
+4. For i = 0 to n - 2
+    - Set minIndex = i
+    - For j = i + 1 to n - 1
+        - If arr[j] < arr[minIndex]
+            - Set minIndex = j
+    - If minIndex != i
+        - Swap arr[i] and arr[minIndex]
+5. Display sorted array
+6. Stop
+
+---
+
+### 🔁 Working Example
+For array:  
+64 25 12 22 11
+
+Pass 1:  
+Smallest = 11  
+Swap 64 and 11  
+Array → 11 25 12 22 64  
+
+Pass 2:  
+Smallest in remaining = 12  
+Swap 25 and 12  
+Array → 11 12 25 22 64  
+
+Pass 3:  
+Smallest = 22  
+Swap 25 and 22  
+Array → 11 12 22 25 64  
+
+Pass 4:  
+Smallest = 25  
+Swap 25 and 25 (no change)  
+Array → 11 12 22 25 64  
+
+Sorted array obtained.
+
+---
+
+### ⏱ Time Complexity
+-  Best Case: O(n²)
+-  Average Case: O(n²)
+-  Worst Case: O(n²)
+
+👉 Time complexity remains same because comparisons are always performed.
+
+---
+
+### 💾 Space Complexity
+-  O(1) (In-place sorting)
+
+---
+
+### 📌 Advantages
+-  Simple and easy to implement
+-  Performs fewer swaps compared to Bubble Sort
+-  Useful when memory writes are costly
+
+---
+
+### ⚠️ Disadvantages
+-  Inefficient for large datasets
+-  Not stable by default
+
+---
+
+### 🏁 Conclusion
+
+Selection Sort repeatedly selects the minimum element and places it in its correct position. Although not efficient for large arrays, it is simple, requires minimal memory, and performs fewer swaps compared to Bubble Sort.
+
+---
+
