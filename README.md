@@ -1840,3 +1840,95 @@ A Circular Linked List connects the last node back to the first node, forming a 
 
 ---
 
+## Stack Implementation Using Linked List
+
+### 📘 Introduction
+A Stack is a linear data structure that follows the LIFO (Last In, First Out) principle.
+The element inserted last is the first one to be removed.
+
+In this program, the stack is implemented using a linked list, which provides dynamic memory allocation and avoids stack overflow due to fixed size (as in array implementation).
+
+---
+
+### 🧠 Core Concepts
+1️⃣ LIFO Principle
+- Push → Insert element at the top
+- Pop → Remove element from the top
+
+2️⃣ Node Structure
+Each node contains:
+- data
+- next pointer
+
+3️⃣ Top Pointer
+- Points to the top element of the stack
+- If top == NULL, stack is empty
+
+4️⃣ Dynamic Memory Allocation
+- Memory allocated using malloc()
+- Memory released using free()
+
+---
+
+### 🧠 Algorithm: Stack Using Linked List
+1.Start
+2.Define structure Node with fields data and next
+3.Initialize top = NULL
+4.Display menu:
+    1. Push
+    2. Pop
+    3. Display
+    4. Exit
+5.Read user choice
+6.Perform selected operation
+7.Repeat until choice = 4
+8.Stop
+
+    #### Algorithm: Push(value)
+1. Allocate memory for new node
+2. If memory allocation fails
+    - Display “Stack Overflow”
+    - Return
+3. Set newNode->data = value
+4. Set newNode->next = top
+5. Set top = newNode
+6. Display success message
+7. Return
+
+    #### Algorithm: Pop()
+1. If top == NULL
+    - Display “Stack Underflow”
+    - Return
+2. Store top in temp
+3. Display popped element
+4. Set top = top->next
+5. Free temp
+6. Return
+
+    #### Algorithm: Display()
+1. If top == NULL
+    - Display “Stack is empty”
+    - Return
+2. Set temp = top
+3. While temp != NULL
+    - Print temp->data
+    - Set temp = temp->next
+4. Return
+
+---
+
+### 📌 Applications of Stack
+- Expression evaluation (infix, postfix, prefix)
+- Parenthesis checking
+- Undo/Redo operations
+- Function calls (Call Stack)
+- Backtracking algorithms
+
+---
+
+### 🏁 Conclusion
+
+The stack implemented using a linked list provides dynamic memory allocation and efficient push and pop operations in O(1) time complexity. It eliminates size limitations found in array-based stacks and efficiently demonstrates the LIFO principle using pointer manipulation.
+
+---
+
