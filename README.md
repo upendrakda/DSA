@@ -75,46 +75,44 @@ free(ptr);
     - Else display “Invalid Input”
 
     #### Algorithm: using_malloc()
+    1. Read the total number of elements n
+    2. Allocate memory
+        - Allocate memory for n integers using malloc()
+    3. Read elements
+        - Read n integer elements and store them in allocated memory
+    4. Ask user for reallocation
+        - Read user choice (y or n)
+    5. If reallocation is required
+        - Read new size new
+        - Reallocate memory using realloc()
+    6. If new size > old size
+        - Read remaining elements from index n to new - 1
+    7. Update size
+        - Set n = new
+    8. Display all elements
+    9. Free allocated memory
+        - Deallocate memory using free()
+    10. Return to main menu
 
-5. Read the total number of elements n
-6. Allocate memory
-    - Allocate memory for n integers using malloc()
-7. Read elements
-    - Read n integer elements and store them in allocated memory
-8. Ask user for reallocation
-    - Read user choice (y or n)
-9. If reallocation is required
-    - Read new size new
-    - Reallocate memory using realloc()
-10. If new size > old size
-    - Read remaining elements from index n to new - 1
-11. Update size
-    - Set n = new
-12. Display all elements
-13. Free allocated memory
-    - Deallocate memory using free()
-14. Return to main menu
-
-    #### Algorithm: using_calloc()
-
-15. Read the total number of elements n
-16. Allocate memory
-    - Allocate memory for n integers using calloc()
-17. Read elements
-    - Read n integer elements and store them in allocated memory
-18. Ask user for reallocation
-    - Read user choice (y or n)
-19. If reallocation is required
-    - Read new size new
-    - Reallocate memory using realloc()
-20. If new size > old size
-    - Read remaining elements from index n to new - 1
-21. Update size
-    - Set n = new
-22. Display all elements
-23. Free allocated memory
-    - Deallocate memory using free()
-24. Stop
+        #### Algorithm: using_calloc()
+    1. Read the total number of elements n
+    2. Allocate memory
+        - Allocate memory for n integers using calloc()
+    3. Read elements
+        - Read n integer elements and store them in allocated memory
+    4. Ask user for reallocation
+        - Read user choice (y or n)
+    5. If reallocation is required
+        - Read new size new
+        - Reallocate memory using realloc()
+    6. If new size > old size
+        - Read remaining elements from index n to new - 1
+    7. Update size
+        - Set n = new
+    8. Display all elements
+    9. Free allocated memory
+        - Deallocate memory using free()
+    10. Stop
 
 ---
 
@@ -278,33 +276,31 @@ Else → Remove element and decrement top
 7. Stop
 
     #### Algorithm: push() Operation
-
-8. Check stack overflow
-    - If top == MAX − 1, display “Stack is Full” and return
-9. Read element
-    - Input the element to be pushed
-10. Insert element
-    - Increment top
-    - Store element at stack[top]
-11. Return to main menu
+    1. Check stack overflow
+       - If top == MAX − 1, display “Stack is Full” and return
+    2. Read element
+       - Input the element to be pushed
+    3. Insert element
+       - Increment top
+       - Store element at stack[top]
+    4. Return to main menu
 
     #### Algorithm: pop() Operation
-
-12. Check stack underflow
-    - If top == −1, display “Stack is Empty” and return
-13. Remove element
-    - Store stack[top] in a variable
-    - Decrement top
-13. Display popped element
-13. Return to main menu
+    1. Check stack underflow
+       - If top == −1, display “Stack is Empty” and return
+    2. Remove element
+       - Store stack[top] in a variable
+       - Decrement top
+    3. Display popped element
+    4. Return to main menu
 
     #### Algorithm: display() Operation
 
-14. Check if stack is empty
-    - If top == −1, display “Stack is Empty” and return
-14. Display stack elements
-    - Print elements from index 0 to top
-14. Return to main menu
+    1. Check if stack is empty
+       - If top == −1, display “Stack is Empty” and return
+    2. Display stack elements
+       - Print elements from index 0 to top
+    3. Return to main menu
 
 ---
 
@@ -890,35 +886,32 @@ In a linear queue, elements are inserted from one end called the rear and delete
 7. Stop
 
     #### Algorithm: enqueue() Operation
-
-8. Check queue overflow
-    - If rear == MAX − 1, display “Queue is Full” and return
-9. Check first insertion
-    - If front == −1, set front = 0
-10. Insert element
-    - Increment rear
-    - Read the element
-    - Store it at queue[rear]
-11. Return to main menu
+    1. Check queue overflow
+        - If rear == MAX − 1, display “Queue is Full” and return
+    2. Check first insertion
+        - If front == −1, set front = 0
+    3. Insert element
+        - Increment rear
+        - Read the element
+        - Store it at queue[rear]
+    4. Return to main menu
 
     #### Algorithm: dequeue() Operation
-
-12. Check queue underflow
-    - If front == −1 or front > rear, display “Queue is Empty” and return
-13. Delete element
-    - Display element at queue[front]
-    - Increment front
-14. Reset queue
-    - If front > rear, set front = −1 and rear = −1
-15. Return to main menu
+    1. Check queue underflow
+        - If front == −1 or front > rear, display “Queue is Empty” and return
+    2. Delete element
+        - Display element at queue[front]
+        - Increment front
+    3. Reset queue
+        - If front > rear, set front = −1 and rear = −1
+    4. Return to main menu
 
     #### Algorithm: display() Operation
-
-16. Check if queue is empty
-    - If front == −1, display “Queue is Empty” and return
-17. Display elements
-    - Print elements from index front to rear
-18. Return to main menu
+    1. Check if queue is empty
+        - If front == −1, display “Queue is Empty” and return
+    2. Display elements
+        - Print elements from index front to rear
+    3. Return to main menu
 
 ---
 ### 📌 Applications
@@ -1012,9 +1005,9 @@ front == -1
     - Initialize front = -1 and rear = -1
 3. Display menu
     1. enqueue()
-    1. dequeue()
-    1. display()
-    1. exit()
+    2. dequeue()
+    3. display()
+    4. exit()
 4. Read user choice
 5. If choice = 1, perform enqueue()
     - Else if choice = 2, perform dequeue()
@@ -1025,34 +1018,34 @@ front == -1
 7. Stop
 
     #### Algorithm: enqueue() Operation
-8. Check queue overflow
-    - If (rear + 1) % MAX == front, display “Queue is Full” and return
-9. Check first insertion
-    - If front == -1, set front = 0 and rear = 0
-    - Else set rear = (rear + 1) % MAX
-10. Insert element
-    - Read item
-    - Store it at queue[rear]
-11. Return to main menu
+    1. Check queue overflow
+        - If (rear + 1) % MAX == front, display “Queue is Full” and return
+    2. Check first insertion
+        - If front == -1, set front = 0 and rear = 0
+        - Else set rear = (rear + 1) % MAX
+    3. Insert element
+        - Read item
+        - Store it at queue[rear]
+    4. Return to main menu
 
     #### Algorithm: dequeue() Operation
-12. Check queue underflow
-    - If front == -1, display “Queue is Empty” and return
-13. Delete element
-    - Display queue[front]
-14. Check if only one element
-    - If front == rear, set front = -1 and rear = -1
-    - Else set front = (front + 1) % MAX
-15. Return to main menu
+    1. Check queue underflow
+        - If front == -1, display “Queue is Empty” and return
+    2. Delete element
+        - Display queue[front]
+    3. Check if only one element
+        - If front == rear, set front = -1 and rear = -1
+        - Else set front = (front + 1) % MAX
+    4. Return to main menu
 
     #### Algorithm: display() Operation
-16. Check if queue is empty
-    - If front == -1, display “Queue is Empty” and return
-17. Display elements
-    - Set i = front
-    - Print queue[i]
-    - Repeat i = (i + 1) % MAX until i == rear
-18. Return to main menu
+    1. Check if queue is empty
+        - If front == -1, display “Queue is Empty” and return
+    2. Display elements
+        - Set i = front
+        - Print queue[i]
+        - Repeat i = (i + 1) % MAX until i == rear
+    3. Return to main menu
 
 ---
 
@@ -1122,11 +1115,10 @@ In this program, factorial is calculated using recursion, where a function calls
 6. Stop
 
     #### Algorithm: factorial(n) Function
-
-7. If n == 0 or n == 1
-- Return 1
-8. Else
--Return n × factorial(n − 1)
+    1. If n == 0 or n == 1
+    - Return 1
+    2. Else
+    - Return n × factorial(n − 1)
 
 ---
 
@@ -1197,12 +1189,12 @@ In this program, Fibonacci numbers are generated using recursion, where the func
 6. Stop
 
     #### Algorithm: fibonacci(n) Function
-7. If n == 0
-- Return 0
-8. Else if n == 1
-- Return 1
-9. Else
-- Return fibonacci(n − 1) + fibonacci(n − 2)
+    1. If n == 0
+        - Return 0
+    2. Else if n == 1
+        - Return 1
+    3. Else
+        - Return fibonacci(n − 1) + fibonacci(n − 2)
 
 ---
 
@@ -1273,11 +1265,10 @@ GCD(a, b) = GCD(b, a % b)
 6. Stop
 
     #### Algorithm: gcd(a, b) Function
-7. If b == 0
-- Return a
-
-8. Else
-- Return gcd(b, a % b)
+    1. If b == 0
+        - Return a
+    2. Else
+        - Return gcd(b, a % b)
 
 ---
 
@@ -1346,13 +1337,13 @@ The goal is to move all disks from the source rod to the destination rod using a
 6. Stop
 
     #### Algorithm: towerOfHanoi(n, source, destination, auxiliary)
-7. If n == 1
-- Print “Move disk 1 from source to destination”
-- Return
-8. Call towerOfHanoi(n − 1, source, auxiliary, destination)
-9. Print “Move disk n from source to destination”
-10. Call towerOfHanoi(n − 1, auxiliary, destination, source)
-11. Return
+    1. If n == 1
+        - Print “Move disk 1 from source to destination”
+        - Return
+    2. Call towerOfHanoi(n − 1, source, auxiliary, destination)
+    3. Print “Move disk n from source to destination”
+    4. Call towerOfHanoi(n − 1, auxiliary, destination, source)
+    5. Return
 
 ---
 
@@ -1431,76 +1422,76 @@ In this program, different operations such as node creation, insertion, deletion
 8. Stop
 
     #### Algorithm: createNode(value)
-1. Allocate memory for new node
-2. Set newNode->data = value
-3. Set newNode->next = NULL
-4. Return new node
+    1. Allocate memory for new node
+    2. Set newNode->data = value
+    3. Set newNode->next = NULL
+    4. Return new node
 
     #### Algorithm: Insert at Beginning
-1. Create new node
-2. Set newNode->next = head
-3. Set head = newNode
-4. Return
+    1. Create new node
+    2. Set newNode->next = head
+    3. Set head = newNode
+    4. Return
 
     #### Algorithm: Insert at End
-1. Create new node
-2. If head == NULL
-    - Set head = newNode
-    - Return
-3. Traverse list until last node
-4. Set last node’s next = newNode
-5. Return
+    1. Create new node
+    2. If head == NULL
+        - Set head = newNode
+        - Return
+    3. Traverse list until last node
+    4. Set last node’s next = newNode
+    5. Return
 
     #### Algorithm: Insert at Position
-1.If position = 1
-    - Call Insert at Beginning
-2.Traverse list up to position − 1
-3.If position invalid
-    - Display error
-4.Set newNode->next = temp->next
-5.Set temp->next = newNode
-6.Return
+    1. If position = 1
+        - Call Insert at Beginning
+    2. Traverse list up to position − 1
+    3. If position invalid
+        - Display error
+    4. Set newNode->next = temp->next
+    5. Set temp->next = newNode
+    6. Return
 
     #### Algorithm: Delete at Beginning
-1. If head == NULL
-    - Display “List is empty”
-2. Store head in temp
-3. Set head = head->next
-4. Free temp
-5. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. Store head in temp
+    3. Set head = head->next
+    4. Free temp
+    5. Return
 
     #### Algorithm: Delete at End
-1. If head == NULL
-    - Display “List is empty”
-2. If only one node
-    - Free head
-    - Set head = NULL
-3. Traverse to last node
-4. Set second-last node’s next = NULL
-5. Free last node
-6. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. If only one node
+        - Free head
+        - Set head = NULL
+    3. Traverse to last node
+    4. Set second-last node’s next = NULL
+    5. Free last node
+    6. Return
 
     #### Algorithm: Delete at Position
-1. If head == NULL
-    - Display “List is empty”
-2. If position = 1
-    - Call Delete at Beginning
-3. Traverse to desired position
-4. If position invalid
-    - Display error
-5. Set prev->next = temp->next
-6. Free temp
-7. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. If position = 1
+        - Call Delete at Beginning
+    3. Traverse to desired position
+    4. If position invalid
+        - Display error
+    5. Set prev->next = temp->next
+    6. Free temp
+    7. Return
 
     #### Algorithm: Display
-1. If head == NULL
-    - Display “List is empty”
-2. Set temp = head
-3. While temp != NULL
-    - Print temp->data
-    - Move temp = temp->next
-4. Print NULL
-5. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. Set temp = head
+    3. While temp != NULL
+        - Print temp->data
+        - Move temp = temp->next
+    4. Print NULL
+    5. Return
 
 ---
 
@@ -1579,86 +1570,86 @@ In this program, various operations such as node creation, insertion, deletion, 
 8. Stop
 
     #### Algorithm: createNode(value)
-1. Allocate memory for new node
-2. Set newNode->data = value
-3. Set newNode->prev = NULL
-4. Set newNode->next = NULL
-5. Return new node
+    1. Allocate memory for new node
+    2. Set newNode->data = value
+    3. Set newNode->prev = NULL
+    4. Set newNode->next = NULL
+    5. Return new node
 
     #### Algorithm: Insert at Beginning
-1. Create new node
-2. If head != NULL
-    - Set head->prev = newNode
-    - Set newNode->next = head
-3. Set head = newNode
-4. Return
+    1. Create new node
+    2. If head != NULL
+        - Set head->prev = newNode
+        - Set newNode->next = head
+    3. Set head = newNode
+    4. Return
 
-#### Algorithm: Insert at End
-1. Create new node
-2. If head == NULL
-    - Set head = newNode
-    - Return
-3. Traverse to last node
-4. Set last->next = newNode
-5. Set newNode->prev = last
-6. Return
+    #### Algorithm: Insert at End
+    1. Create new node
+    2. If head == NULL
+        - Set head = newNode
+        - Return
+    3. Traverse to last node
+    4. Set last->next = newNode
+    5. Set newNode->prev = last
+    6. Return
 
     #### Algorithm: Insert at Position
-1. If position = 1
-    - Call Insert at Beginning
-2. Traverse to position − 1
-3. If position invalid
-    - Display error
-4. Set newNode->next = temp->next
-5. Set newNode->prev = temp
-6. If temp->next != NULL
-    - Set temp->next->prev = newNode
-7. Set temp->next = newNode
-8. Return
+    1. If position = 1
+        - Call Insert at Beginning
+    2. Traverse to position − 1
+    3. If position invalid
+        - Display error
+    4. Set newNode->next = temp->next
+    5. Set newNode->prev = temp
+    6. If temp->next != NULL
+        - Set temp->next->prev = newNode
+    7. Set temp->next = newNode
+    8. Return
 
     #### Algorithm: Delete at Beginning
-1. If head == NULL
-    - Display “List is empty”
-2. Store head in temp
-3. Set head = head->next
-4. If head != NULL
-    - Set head->prev = NULL
-5. Free temp
-6. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. Store head in temp
+    3. Set head = head->next
+    4. If head != NULL
+        - Set head->prev = NULL
+    5. Free temp
+    6. Return
 
     #### Algorithm: Delete at End
-1. If head == NULL
-    - Display “List is empty”
-2. If only one node
-    - Free head
-    - Set head = NULL
-3. Traverse to last node
-4. Set last->prev->next = NULL
-5. Free last node
-6. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. If only one node
+        - Free head
+        - Set head = NULL
+    3. Traverse to last node
+    4. Set last->prev->next = NULL
+    5. Free last node
+    6. Return
 
     #### Algorithm: Delete at Position
-1. If head == NULL
-    - Display “List is empty”
-2. If position = 1
-    - Call Delete at Beginning
-3. Traverse to desired position
-4. If position invalid
-    - Display error
-5. Set temp->next->prev = temp->prev (if temp->next != NULL)
-6. Set temp->prev->next = temp->next (if temp->prev != NULL)
-7. Free temp
-8. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. If position = 1
+        - Call Delete at Beginning
+    3. Traverse to desired position
+    4. If position invalid
+        - Display error
+    5. Set temp->next->prev = temp->prev (if temp->next != NULL)
+    6. Set temp->prev->next = temp->next (if temp->prev != NULL)
+    7. Free temp
+    8. Return
 
     #### Algorithm: Display
-1. If head == NULL
-    - Display “List is empty”
-2. Set temp = head
-3. While temp != NULL
-    - Print temp->data
-    - Move temp = temp->next
-4. Print NULL
-5. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. Set temp = head
+    3. While temp != NULL
+        - Print temp->data
+        - Move temp = temp->next
+    4. Print NULL
+    5. Return
 
 ---
 
@@ -1733,95 +1724,95 @@ In this program, the following operations are implemented:
 8. Stop
 
     #### Algorithm: createNode(value)
-1. Allocate memory for new node
-2. Set newNode->data = value
-3. Set newNode->next = NULL
-4. Return new node
+    1. Allocate memory for new node
+    2. Set newNode->data = value
+    3. Set newNode->next = NULL
+    4. Return new node
 
     #### Algorithm: Insert at Beginning
-1. Create new node
-2. If head == NULL
-    - Set head = newNode
-    - Set newNode->next = head
-3. Else
-    - Traverse to last node (whose next is head)
-    - Set newNode->next = head
-    - Set last->next = newNode
-    - Set head = newNode
-4. Return
+    1. Create new node
+    2. If head == NULL
+        - Set head = newNode
+        - Set newNode->next = head
+    3. Else
+        - Traverse to last node (whose next is head)
+        - Set newNode->next = head
+        - Set last->next = newNode
+        - Set head = newNode
+    4. Return
 
     #### Algorithm: Insert at End
-1. Create new node
-2. If head == NULL
-    - Set head = newNode
-    - Set newNode->next = head
-3. Else
-    - Traverse to last node
-    - Set last->next = newNode
-    - Set newNode->next = head
-4. Return
+    1. Create new node
+    2. If head == NULL
+        - Set head = newNode
+        - Set newNode->next = head
+    3. Else
+        - Traverse to last node
+        - Set last->next = newNode
+        - Set newNode->next = head
+    4. Return
 
     #### Algorithm: Insert at Position
-1. If position = 1
-    - Call Insert at Beginning
-2. If head == NULL
-    - Display “List is empty”
-3. Traverse to position − 1
-4. If position invalid
-    - Display error
-5. Create new node
-6. Set newNode->next = temp->next
-7. Set temp->next = newNode
-8. Return
+    1. If position = 1
+        - Call Insert at Beginning
+    2. If head == NULL
+        - Display “List is empty”
+    3. Traverse to position − 1
+    4. If position invalid
+        - Display error
+    5. Create new node
+    6. Set newNode->next = temp->next
+    7. Set temp->next = newNode
+    8. Return
 
     #### Algorithm: Delete at Beginning
-1. If head == NULL
-    - Display “List is empty”
-2. If only one node (head->next == head)
-    - Free head
-    - Set head = NULL
-3. Else
-    - Traverse to last node
-    - Store head in temp
-    - Set head = head->next
-    - Set last->next = head
-    - Free temp
-4. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. If only one node (head->next == head)
+        - Free head
+        - Set head = NULL
+    3. Else
+        - Traverse to last node
+        - Store head in temp
+        - Set head = head->next
+        - Set last->next = head
+        - Free temp
+    4. Return
 
     #### Algorithm: Delete at End
-1. If head == NULL
-    - Display “List is empty”
-2. If only one node
-    - Free head
-    - Set head = NULL
-3. Else
-    - Traverse to last node (keep track of previous)
-    - Set prev->next = head
-    - Free last node
-4. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. If only one node
+        - Free head
+        - Set head = NULL
+    3. Else
+        - Traverse to last node (keep track of previous)
+        - Set prev->next = head
+        - Free last node
+    4. Return
 
     #### Algorithm: Delete at Position
-1. If head == NULL
-    - Display “List is empty”
-2. If position = 1
-    - Call Delete at Beginning
-3. Traverse to desired position
-4. If position invalid
-    - Display error
-5. Set prev->next = temp->next
-6. Free temp
-7. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. If position = 1
+        - Call Delete at Beginning
+    3. Traverse to desired position
+    4. If position invalid
+        - Display error
+    5. Set prev->next = temp->next
+    6. Free temp
+    7. Return
 
     #### Algorithm: Display
-1. If head == NULL
-    - Display “List is empty”
-2. Set temp = head
-3. Repeat
-    - Print temp->data
-    - Set temp = temp->next  
-    Until temp == head
-4. Print “(head)”
-5. Return
+    1. If head == NULL
+        - Display “List is empty”
+    2. Set temp = head
+    3. Repeat
+        - Print temp->data
+        - Set temp = temp->next  
+        Until temp == head
+    4. Print “(head)”
+    5. Return
 
 ---
 
@@ -1871,49 +1862,49 @@ Each node contains:
 ---
 
 ### 🧠 Algorithm: Stack Using Linked List
-1.Start
-2.Define structure Node with fields data and next
-3.Initialize top = NULL
-4.Display menu:
+1. Start
+2. Define structure Node with fields data and next
+3. Initialize top = NULL
+4. Display menu:
     1. Push
     2. Pop
     3. Display
     4. Exit
-5.Read user choice
-6.Perform selected operation
-7.Repeat until choice = 4
-8.Stop
+5. Read user choice
+6. Perform selected operation
+7. Repeat until choice = 4
+8. Stop
 
     #### Algorithm: Push(value)
-1. Allocate memory for new node
-2. If memory allocation fails
-    - Display “Stack Overflow”
-    - Return
-3. Set newNode->data = value
-4. Set newNode->next = top
-5. Set top = newNode
-6. Display success message
-7. Return
+    1. Allocate memory for new node
+    2. If memory allocation fails
+        - Display “Stack Overflow”
+        - Return
+    3. Set newNode->data = value
+    4. Set newNode->next = top
+    5. Set top = newNode
+    6. Display success message
+    7. Return
 
     #### Algorithm: Pop()
-1. If top == NULL
-    - Display “Stack Underflow”
-    - Return
-2. Store top in temp
-3. Display popped element
-4. Set top = top->next
-5. Free temp
-6. Return
+    1. If top == NULL
+        - Display “Stack Underflow”
+        - Return
+    2. Store top in temp
+    3. Display popped element
+    4. Set top = top->next
+    5. Free temp
+    6. Return
 
     #### Algorithm: Display()
-1. If top == NULL
-    - Display “Stack is empty”
-    - Return
-2. Set temp = top
-3. While temp != NULL
-    - Print temp->data
-    - Set temp = temp->next
-4. Return
+    1. If top == NULL
+        - Display “Stack is empty”
+        - Return
+    2. Set temp = top
+    3. While temp != NULL
+        - Print temp->data
+        - Set temp = temp->next
+    4. Return
 
 ---
 
@@ -1978,41 +1969,41 @@ Each node contains:
 8. Stop
 
     #### Algorithm: Enqueue(value)
-1. Allocate memory for new node
-2. If memory allocation fails
-    - Display “Queue Overflow”
-    - Return
-3. Set newNode->data = value
-4. Set newNode->next = NULL
-5. If rear == NULL (queue is empty)
-    - Set front = rear = newNode
-6. Else
-    - Set rear->next = newNode
-    - Set rear = newNode
-7. Display success message
-8. Return
+    1. Allocate memory for new node
+    2. If memory allocation fails
+        - Display “Queue Overflow”
+        - Return
+    3. Set newNode->data = value
+    4. Set newNode->next = NULL
+    5. If rear == NULL (queue is empty)
+        - Set front = rear = newNode
+    6. Else
+        - Set rear->next = newNode
+        - Set rear = newNode
+    7. Display success message
+    8. Return
 
     #### Algorithm: Dequeue()
-1. If front == NULL
-    - Display “Queue Underflow”
-    - Return
-2. Store front in temp
-3. Display dequeued element
-4. Set front = front->next
-5. If front == NULL
-    - Set rear = NULL
-6. Free temp
-7. Return
+    1. If front == NULL
+        - Display “Queue Underflow”
+        - Return
+    2. Store front in temp
+    3. Display dequeued element
+    4. Set front = front->next
+    5. If front == NULL
+        - Set rear = NULL
+    6. Free temp
+    7. Return
 
     #### Algorithm: Display()
-1. If front == NULL
-    - Display “Queue is empty”
-    - Return
-2. Set temp = front
-3. While temp != NULL
-    - Print temp->data
-    - Set temp = temp->next
-4. Return
+    1. If front == NULL
+        - Display “Queue is empty”
+        - Return
+    2. Set temp = front
+    3. While temp != NULL
+        - Print temp->data
+        - Set temp = temp->next
+    4. Return
 
 ---
 
