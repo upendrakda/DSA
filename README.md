@@ -2728,3 +2728,87 @@ Final sorted array →
 Heap Sort is an efficient and reliable sorting algorithm. By using the heap data structure, it ensures consistent O(n log n) performance and sorts the array without requiring additional memory.
 
 ---
+
+## Sequential Search (Linear Search) Implementation
+
+### 📘 Introduction
+Sequential Search (also called Linear Search) is the simplest searching technique.
+It checks each element of the array one by one until the required element (key) is found or the array ends.
+
+It does not require the array to be sorted.
+
+---
+
+### 🧠 Core Concept
+- Start from the first element
+- Compare each element with the key
+- If match is found → return position
+- If end of array is reached → element not found
+
+---
+
+### 🧠 Algorithm: Sequential Searc1. 
+1. Start
+2. Read number of elements n
+3. Read array elements
+4. Read element to search key
+5. Call sequentialSearch(arr, n, key)
+6. If result ≠ -1
+    - Display element found
+7. Else
+    - Display element not found
+8. Stop
+
+    #### Algorithm: sequentialSearch(arr, n, key)
+    1. For i = 0 to n - 1
+        - If arr[i] == key
+            - Return i
+    2. Return -1
+
+---
+
+### 🔁 Working Example
+Array:  
+10 20 30 40 50
+
+Search key = 30
+
+Step 1: Compare 10 → Not equal  
+Step 2: Compare 20 → Not equal  
+Step 3: Compare 30 → Match found
+
+Element found at position 3
+
+---
+
+### ⏱ Time Complexity
+- Best Case: O(1)  
+(Element found at first position)
+- Average Case: O(n)
+- Worst Case: O(n)  
+(Element at last position or not present)
+
+---
+
+### 💾 Space Complexity
+- O(1)
+
+---
+
+### 📌 Advantages
+- Simple to implement
+- Works on unsorted arrays
+- No preprocessing required
+
+---
+
+### ⚠️ Disadvantages
+- Slow for large datasets
+- Inefficient compared to Binary Search (for sorted arrays)
+
+---
+
+### 🏁 Conclusion
+Sequential Search is the most basic searching algorithm. It is easy to understand and implement but is suitable only for small or unsorted datasets due to its linear time complexity.
+
+---
