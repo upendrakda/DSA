@@ -2305,3 +2305,107 @@ Result → 2 3 12 34 54
 Shell Sort improves insertion sort by allowing the exchange of distant elements first. By gradually reducing the gap, it efficiently sorts the array with better performance than basic quadratic sorting algorithms.
 
 ---
+
+## Merge Sort Implementation
+
+### 📘 Introduction
+Merge Sort is a highly efficient divide-and-conquer sorting algorithm.
+It divides the array into smaller subarrays, sorts them recursively, and then merges them back together in sorted order.
+
+Unlike simple sorting algorithms, Merge Sort guarantees good performance even for large datasets.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Divide
+- Split the array into two halves
+
+2️⃣ Conquer
+- Recursively sort both halves
+
+3️⃣ Combine (Merge)
+- Merge the two sorted halves into one sorted array
+
+4️⃣ Recursion
+- The process continues until each subarray contains only one element
+
+---
+
+### 🧠 Algorithm: Merge Sort
+1. Start
+2. Read number of elements n
+3. Read array elements
+4. Call mergeSort(arr, 0, n-1)
+5. Display sorted array
+6. Stop
+
+    #### Algorithm: mergeSort(arr, left, right)
+    1. If left < right
+    2. Find middle index
+        - mid = left + (right - left) / 2
+    3. Call mergeSort(arr, left, mid)
+    4. Call mergeSort(arr, mid + 1, right)
+    5. Call merge(arr, left, mid, right)
+    6. Return
+
+    #### Algorithm: merge(arr, left, mid, right)
+    1. Calculate sizes:
+        - n1 = mid - left + 1
+        - n2 = right - mid
+    2. Create temporary arrays L[n1] and R[n2]
+    3. Copy elements into temporary arrays
+    4. Compare elements of L and R
+    5. Place smaller element into original array
+    6. Copy remaining elements (if any)
+    7. Return
+
+---
+
+### 🔁 Working Example
+For array:  
+38 27 43 3 9 82 10
+
+Step 1: Divide into halves  
+38 27 43 3 and 9 82 10
+
+Step 2: Continue dividing until single elements  
+
+Step 3: Merge step-by-step in sorted order  
+
+Final result →  
+3 9 10 27 38 43 82  
+
+---
+
+### ⏱ Time Complexity
+- Best Case: O(n log n)
+- Average Case: O(n log n)
+- Worst Case: O(n log n)
+
+👉 Time complexity remains same in all cases.
+
+---
+
+### 💾 Space Complexity
+- O(n) (Requires extra temporary arrays)
+
+---
+
+### 📌 Advantages
+- Efficient for large datasets
+- Stable sorting algorithm
+- Predictable performance
+
+---
+
+### ⚠️ Disadvantages
+- Requires extra memory
+- Slightly slower for very small datasets compared to simpler sorts
+
+---
+
+### 🏁 Conclusion
+
+Merge Sort is a powerful and efficient sorting algorithm based on the divide-and-conquer technique. It guarantees O(n log n) time complexity and is widely used in real-world applications where stable and consistent performance is required.
+
+---
