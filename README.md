@@ -2409,3 +2409,322 @@ Final result →
 Merge Sort is a powerful and efficient sorting algorithm based on the divide-and-conquer technique. It guarantees O(n log n) time complexity and is widely used in real-world applications where stable and consistent performance is required.
 
 ---
+
+## Quick Sort Implementation
+
+### 📘 Introduction
+Quick Sort is a highly efficient divide-and-conquer sorting algorithm.
+It works by selecting a pivot element, partitioning the array around the pivot, and recursively sorting the subarrays.
+
+It is one of the fastest sorting algorithms in practice.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Pivot Element
+- A selected element used to divide the array
+- In this program, the last element is chosen as pivot
+
+2️⃣ Partitioning
+- Elements smaller than pivot are placed on the left
+- Elements greater than pivot are placed on the right
+- Pivot is placed in its correct sorted position
+
+3️⃣ Recursion
+- Apply Quick Sort to left and right subarrays
+
+---
+
+### 🧠 Algorithm: Quick Sort
+1. Start
+2. Read number of elements n
+3. Read array elements
+4. Call quickSort(arr, 0, n-1)
+5. Display sorted array
+6. Stop
+
+    #### Algorithm: quickSort(arr, low, high)
+    1. If low < high
+    2. Find partition index pi = partition(arr, low, high)
+    3. Call quickSort(arr, low, pi - 1)
+    4. Call quickSort(arr, pi + 1, high)
+    5. Return
+
+    #### Algorithm: partition(arr, low, high)
+    1. Select pivot = arr[high]
+    2. Set i = low - 1
+    3. For j = low to high - 1
+        - If arr[j] < pivot
+            - Increment i
+            - Swap arr[i] and arr[j]
+    4. Swap arr[i + 1] and arr[high]
+    5. Return i + 1 (pivot index)
+
+---
+
+### 🔁 Working Example
+For array:  
+10 7 8 9 1 5
+
+Step 1:  
+Pivot = 5
+
+After partition:  
+1 5 8 9 10 7  
+Pivot index = 1
+
+Step 2:  
+Apply Quick Sort on left and right parts
+
+Final sorted array →  
+1 5 7 8 9 10  
+
+---
+
+### ⏱ Time Complexity
+- Best Case: O(n log n)
+- Average Case: O(n log n)
+- Worst Case: O(n²)  
+(Occurs when array is already sorted and poor pivot is chosen)
+
+---
+
+### 💾 Space Complexity
+- O(log n) (due to recursion stack)
+
+----
+
+### 📌 Advantages
+- Very fast in practice
+- In-place sorting
+- Efficient for large datasets
+
+----
+
+### ⚠️ Disadvantages
+- Worst-case O(n²)
+- Not stable
+- Performance depends on pivot selection
+
+----
+
+### 🏁 Conclusion
+Quick Sort is one of the most efficient and widely used sorting algorithms. By using partitioning and recursion, it efficiently sorts large datasets. Proper pivot selection improves performance and avoids worst-case scenarios.
+
+---
+
+## Quick Sort Implementation
+
+### 📘 Introduction
+Quick Sort is a highly efficient divide-and-conquer sorting algorithm.
+It works by selecting a pivot element, partitioning the array around the pivot, and recursively sorting the subarrays.
+
+It is one of the fastest sorting algorithms in practice.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Pivot Element
+- A selected element used to divide the array
+- In this program, the last element is chosen as pivot
+
+2️⃣ Partitioning
+- Elements smaller than pivot are placed on the left
+- Elements greater than pivot are placed on the right
+- Pivot is placed in its correct sorted position
+
+3️⃣ Recursion
+- Apply Quick Sort to left and right subarrays
+
+---
+
+### 🧠 Algorithm: Quick Sort
+1. Start
+2. Read number of elements n
+3. Read array elements
+4. Call quickSort(arr, 0, n-1)
+5. Display sorted array
+6. Stop
+
+    #### Algorithm: quickSort(arr, low, high)
+    1. If low < high
+    2. Find partition index pi = partition(arr, low, high)
+    3. Call quickSort(arr, low, pi - 1)
+    4. Call quickSort(arr, pi + 1, high)
+    5. Return
+
+    #### Algorithm: partition(arr, low, high)
+    1. Select pivot = arr[high]
+    2. Set i = low - 1
+    3. For j = low to high - 1
+        - If arr[j] < pivot
+            - Increment i
+            - Swap arr[i] and arr[j]
+    4. Swap arr[i + 1] and arr[high]
+    5. Return i + 1 (pivot index)
+
+---
+
+### 🔁 Working Example
+For array:  
+10 7 8 9 1 5
+
+Step 1:  
+Pivot = 5
+
+After partition:  
+1 5 8 9 10 7  
+Pivot index = 1
+
+Step 2:  
+Apply Quick Sort on left and right parts
+
+Final sorted array →  
+1 5 7 8 9 10  
+
+---
+
+### ⏱ Time Complexity
+- Best Case: O(n log n)
+- Average Case: O(n log n)
+- Worst Case: O(n²)  
+(Occurs when array is already sorted and poor pivot is chosen)
+
+---
+
+### 💾 Space Complexity
+- O(log n) (due to recursion stack)
+
+----
+
+### 📌 Advantages
+- Very fast in practice
+- In-place sorting
+- Efficient for large datasets
+
+----
+
+### ⚠️ Disadvantages
+- Worst-case O(n²)
+- Not stable
+- Performance depends on pivot selection
+
+----
+
+### 🏁 Conclusion
+Quick Sort is one of the most efficient and widely used sorting algorithms. By using partitioning and recursion, it efficiently sorts large datasets. Proper pivot selection improves performance and avoids worst-case scenarios.
+
+---
+
+## Heap Sort Implementation
+
+### 📘 Introduction
+Heap Sort is a comparison-based sorting algorithm that uses a Binary Heap data structure.
+It first builds a Max Heap and then repeatedly extracts the largest element to sort the array.
+
+It is efficient and does not require extra memory.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Binary Heap
+- A complete binary tree
+- In Max Heap, parent node is greater than its children
+
+2️⃣ Heapify
+- Process of maintaining heap property
+
+3️⃣ Heap Sort Process
+- Build Max Heap
+- Swap root with last element
+- Reduce heap size
+- Heapify again
+- Repeat
+
+---
+
+### 🧠 Algorithm: Heap Sort
+1. Start
+2. Read number of elements n
+3. Read array elements
+4. Call heapSort(arr, n)
+5. Display sorted array
+6. Stop
+
+    #### Algorithm: heapSort(arr, n)
+    1. Build Max Heap
+        - For i = n/2 - 1 down to 0
+            - Call heapify(arr, n, i)
+    2. For i = n - 1 down to 0
+        - Swap arr[0] and arr[i]
+        - Call heapify(arr, i, 0)
+    3. Return
+
+    #### Algorithm: heapify(arr, n, i)
+    1. Set largest = i
+    2. Compute
+        - left = 2*i + 1
+        - right = 2*i + 2
+    3. If left < n and arr[left] > arr[largest]
+        - Set largest = left
+    4. If right < n and arr[right] > arr[largest]
+        - Set largest = right
+    5. If largest != i
+        - Swap arr[i] and arr[largest]
+        - Call heapify(arr, n, largest)
+    6. Return
+
+---
+
+### 🔁 Working Example
+For array:  
+4 10 3 5 1
+
+Step 1: Build Max Heap  
+Max Heap →  
+10 5 3 4 1
+
+Step 2: Swap root with last element  
+1 5 3 4 10
+
+Heapify remaining elements
+
+Repeat process
+
+Final sorted array →  
+1 3 4 5 10
+
+---
+
+### ⏱ Time Complexity
+- Best Case: O(n log n)
+- Average Case: O(n log n)
+- Worst Case: O(n log n)
+
+(Unlike Quick Sort, worst case is still O(n log n))
+
+---
+
+### 💾 Space Complexity
+- O(1) (In-place sorting)
+
+---
+
+### 📌 Advantages
+- Guaranteed O(n log n) time
+- In-place sorting
+- No worst-case performance drop
+
+---
+
+### ⚠️ Disadvantages
+- Not stable
+- Slower in practice compared to Quick Sort
+- Heap structure is not simple to understand initially
+
+---
+
+### 🏁 Conclusion
+Heap Sort is an efficient and reliable sorting algorithm. By using the heap data structure, it ensures consistent O(n log n) performance and sorts the array without requiring additional memory.
+
+---
