@@ -2812,3 +2812,228 @@ Element found at position 3
 Sequential Search is the most basic searching algorithm. It is easy to understand and implement but is suitable only for small or unsorted datasets due to its linear time complexity.
 
 ---
+
+## Binary Search Implementation
+
+### 📘 Introduction
+Binary Search is an efficient searching algorithm that works only on sorted arrays.
+It repeatedly divides the search interval into two halves and eliminates one half in each step.
+
+It is much faster than Sequential Search for large sorted datasets.
+
+---
+
+### 🧠 Core Concept
+- Compare key with the middle element
+- If equal → element found
+- If key is greater → search right half
+- If key is smaller → search left half
+- Repeat until found or search space becomes empty
+
+---
+
+### 🧠 Algorithm: Binary Search
+1. Start
+2. Read number of elements n (sorted array)
+3. Read array elements in sorted order
+4. Read element to search key
+5. Call binarySearch(arr, n, key)
+6. If result ≠ -1
+    - Display element found
+7. Else
+    - Display element not found
+8. Stop
+
+    #### Algorithm: binarySearch(arr, n, key)
+    1. Set low = 0
+    2. Set high = n - 1
+    3. While low <= high
+        - Find middle element  
+        mid = low + (high - low) / 2
+        - If arr[mid] == key
+            - Return mid
+        - Else if arr[mid] < key
+            - Set low = mid + 1
+        - Else
+            - Set high = mid - 1
+    4. Return -1
+
+---
+
+### 🔁 Working Example
+Array (sorted):  
+5 10 15 20 25 30
+
+Search key = 20
+
+Step 1:  
+low = 0, high = 5  
+mid = 2 → arr[2] = 15
+
+15 < 20 → Search right half
+
+Step 2:  
+low = 3, high = 5  
+mid = 4 → arr[4] = 25
+
+25 > 20 → Search left half
+
+Step 3:  
+low = 3, high = 3  
+mid = 3 → arr[3] = 20
+
+Match found
+
+Element found at position 4
+
+---
+
+### ⏱ Time Complexity
+- Best Case: O(1)
+- Average Case: O(log n)
+- Worst Case: O(log n)
+
+---
+
+### 💾 Space Complexity
+- O(1) (Iterative version)
+
+---
+
+### 📌 Advantages
+- Very fast for large datasets
+- Efficient time complexity O(log n)
+- Simple implementation (iterative)
+
+---
+
+### ⚠️ Disadvantages
+- Works only on sorted arrays
+- Not suitable for linked lists (without modification)
+
+---
+
+### 🏁 Conclusion
+Binary Search is one of the most efficient searching algorithms for sorted data. By repeatedly dividing the array into halves, it significantly reduces the number of comparisons and performs much faster than linear search for large inputs.
+
+--
+
+## Hash Table with Linear Probing
+
+### 📘 Introduction
+A Hash Table is a data structure used to store key values efficiently using a hash function.
+
+When two keys produce the same hash index (collision), Linear Probing is used to resolve the collision by checking the next available slot sequentially.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Hash Function
+- Converts a key into an index
+- In this program:  
+index = key % TABLE_SIZE
+
+2️⃣ Collision
+- Occurs when two keys map to the same index
+
+3️⃣ Linear Probing
+- If slot is occupied
+- Move to next index (index + 1) % TABLE_SIZE
+- Repeat until empty slot is found
+
+4️⃣ Empty Slot Indicator
+- -1 represents an empty location
+
+---
+
+### 🧠 Algorithm: Hash Table with Linear Probing
+1. Start
+2. Declare hash table of size 10
+3. Initialize all elements to -1
+4. Read number of elements n
+5. For each key
+    - Call insert(hashTable, key)
+6. Display hash table
+7. Stop
+
+    #### Algorithm: initHashTable(hashTable)
+    1. For i = 0 to TABLE_SIZE - 1
+        - Set hashTable[i] = -1
+    2. Return
+
+    #### Algorithm: hashFunction(key)
+    1. Return key % TABLE_SIZE
+
+    #### Algorithm: insert(hashTable, key)
+    1. Compute index = hashFunction(key)
+    2. While hashTable[index] != -1
+        - index = (index + 1) % TABLE_SIZE
+    3. Place key at hashTable[index]
+    4.  Return
+
+    #### Algorithm: display(hashTable)
+    1. For i = 0 to TABLE_SIZE - 1
+        - If slot not empty
+            - Print index and key
+        - Else
+            - Print index as Empty
+    2. Return
+
+---
+
+### 🔁 Working Example
+Let TABLE_SIZE = 10
+
+Keys inserted:  
+23, 43, 13
+
+Step 1:  
+23 % 10 = 3 → Place at index 3
+
+Step 2:  
+43 % 10 = 3 → Collision  
+Check index 4 → Empty → Place at index 4
+
+Step 3:  
+13 % 10 = 3 → Collision  
+Index 4 occupied → Collision  
+Index 5 empty → Place at index 5
+
+Final Hash Table (partial view):
+
+Index 3 → 23  
+Index 4 → 43  
+Index 5 → 13
+
+---
+
+### ⏱ Time Complexity
+- Best Case: O(1)
+- Average Case: O(1)
+- Worst Case: O(n) (when many collisions occur)
+
+---
+
+### 💾 Space Complexity
+- O(TABLE_SIZE)
+
+---
+
+### 📌 Advantages
+- Simple collision resolution
+- Easy to implement
+- Efficient for small load factors
+
+---
+
+### ⚠️ Disadvantages
+- Clustering problem
+- Performance decreases when table becomes full
+- Fixed table size
+
+---
+
+### 🏁 Conclusion
+Hash Table with Linear Probing is an efficient data structure for fast insertion and retrieval. By using a hash function and resolving collisions sequentially, it provides near constant-time performance under good conditions.
+
+---
