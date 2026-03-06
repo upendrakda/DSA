@@ -3037,3 +3037,133 @@ Index 5 → 13
 Hash Table with Linear Probing is an efficient data structure for fast insertion and retrieval. By using a hash function and resolving collisions sequentially, it provides near constant-time performance under good conditions.
 
 ---
+
+## Hash Table with Quadratic Probing
+
+### 📘 Introduction
+A Hash Table stores data using a hash function to compute an index.
+
+When a collision occurs (two keys map to the same index), Quadratic Probing is used to resolve it by checking positions using a quadratic formula instead of moving sequentially.
+
+Quadratic probing reduces clustering compared to Linear Probing.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Hash Function
+- Converts key into index
+- In this program:  
+index = key % TABLE_SIZE
+
+2️⃣ Collision
+- Occurs when computed index is already occupied
+
+3️⃣ Quadratic Probing Formula  
+    newIndex=(index+i<sup>2</sup>)%TABLE_SIZE  
+Where
+- i = 0, 1, 2, 3, ...
+
+4️⃣ Empty Slot Indicator
+- -1 represents empty slot
+
+---
+
+### 🧠 Algorithm: Hash Table with Quadratic Probing
+1. Start
+2. Declare hash table of size 10
+3. Initialize all elements to -1
+4. Read number of elements n
+5. For each key
+    - Call insert(hashTable, key)
+6. Display hash table
+7. Stop
+
+    #### Algorithm: initHashTable(hashTable)
+    1. For i = 0 to TABLE_SIZE - 1
+        - Set hashTable[i] = -1
+    2. Return
+
+    #### Algorithm: hashFunction(key)
+    1. Return key % TABLE_SIZE
+
+    #### Algorithm: insert(hashTable, key)
+    1. Compute index = hashFunction(key)
+    2. Set i = 0
+    3. While i < TABLE_SIZE
+        - Compute  
+        newIndex = (index + i*i) % TABLE_SIZE
+        - If hashTable[newIndex] == -1
+            - Place key at that index
+            - Return
+        - Increment i
+    4. If no empty slot found
+        - Print "Hash Table is Full"
+    5. Return
+
+    #### Algorithm: display(hashTable)
+    1. For i = 0 to TABLE_SIZE - 1
+        - If slot not empty
+            - Print index and key
+        - Else
+            - Print index as Empty
+    2. Return
+
+---
+
+### 🔁 Working Example
+Let TABLE_SIZE = 10
+
+Keys inserted:  
+23, 43, 13
+
+Step 1:  
+23 % 10 = 3 → Place at index 3
+
+Step 2:  
+43 % 10 = 3 → Collision  
+Try:  
+i = 1 → (3 + 1²) % 10 = 4 → Empty → Place at index 4
+
+Step 3:  
+13 % 10 = 3 → Collision  
+i = 1 → 4 occupied  
+i = 2 → (3 + 2²) % 10 = 7 → Empty → Place at index 7
+
+Final Hash Table (partial view):
+
+Index 3 → 23  
+Index 4 → 43  
+Index 7 → 13  
+
+---
+
+### ⏱ Time Complexity
+- Best Case: O(1)
+- Average Case: O(1)
+- Worst Case: O(n)
+
+---
+
+### 💾 Space Complexity
+- O(TABLE_SIZE)
+
+---
+
+### 📌 Advantages
+- Reduces primary clustering
+- Better distribution than Linear Probing
+- Simple implementation
+
+---
+
+### ⚠️ Disadvantages
+- Secondary clustering may occur
+- Requires proper table size (usually prime number preferred)
+- May not check all slots if table size is not chosen properly
+
+---
+
+### 🏁 Conclusion
+Hash Table with Quadratic Probing improves collision handling compared to Linear Probing. By using a quadratic formula to find new positions, it spreads keys more uniformly and improves performance when collisions occur.
+
+---
