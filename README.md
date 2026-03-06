@@ -3167,3 +3167,148 @@ Index 7 → 13
 Hash Table with Quadratic Probing improves collision handling compared to Linear Probing. By using a quadratic formula to find new positions, it spreads keys more uniformly and improves performance when collisions occur.
 
 ---
+
+## Hash Table with Double Hashing
+
+### 📘 Introduction
+A Hash Table stores keys using a hash function to compute their index.
+
+When a collision occurs, Double Hashing uses a second hash function to calculate a new step size, reducing clustering and improving performance compared to Linear and Quadratic Probing.
+
+It is one of the most effective open addressing techniques.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ First Hash Function (Primary Index)  
+    index1=key%TABLE_SIZE
+
+2️⃣ Second Hash Function (Step Size)  
+    index2=7−(key%7)
+
+(7 is a prime number less than TABLE_SIZE)
+
+3️⃣ Double Hashing Formula  
+    newIndex=(index1+i×index2)%TABLE_SIZE
+
+Where
+- i = 0, 1, 2, 3, ...
+
+4️⃣ Empty Slot Indicator
+- -1 represents empty slot
+
+---
+
+### 🧠 Algorithm: Hash Table with Double Hashing
+1. Start
+2. Declare hash table of size 10
+3. Initialize all elements to -1
+4. Read number of elements n
+5. For each key
+    - Call insert(hashTable, key)
+6. Display hash table
+7. Stop
+
+    #### Algorithm: initHashTable(hashTable)
+    1. For i = 0 to TABLE_SIZE - 1
+        - Set hashTable[i] = -1
+    2. Return
+
+    #### Algorithm: hash1(key)
+    1. Return key % TABLE_SIZE
+
+    #### Algorithm: hash2(key)
+    1. Return 7 - (key % 7)
+
+    #### Algorithm: insert(hashTable, key)
+    1. Compute
+        - index1 = hash1(key)
+        - index2 = hash2(key)
+    2. Set i = 0
+    3. While i < TABLE_SIZE
+        - Compute  
+        newIndex = (index1 + i * index2) % TABLE_SIZE
+        - If slot is empty
+            - Insert key
+            - Return
+        - Increment i
+    4. If no slot found
+        - Print "Hash Table is Full"
+    5. Return
+
+    #### Algorithm: display(hashTable)
+    1. For i = 0 to TABLE_SIZE - 1
+        - If slot not empty
+            - Print index and key
+        - Else
+            - Print index as Empty
+    2. Return
+
+--- 
+
+### 🔁 Working Example
+Let TABLE_SIZE = 10
+
+Keys inserted:  
+23, 43, 13
+
+Step 1:  
+23 →  
+index1 = 23 % 10 = 3  
+index2 = 7 - (23 % 7) = 7 - 2 = 5  
+Place at index 3
+
+Step 2:  
+43 →  
+index1 = 3 (collision)  
+index2 = 7 - (43 % 7) = 7 - 1 = 6
+
+Try:  
+i = 1 → (3 + 1×6) % 10 = 9 → Empty → Place at index 9
+
+Step 3:  
+13 →  
+index1 = 3 (collision)  
+index2 = 7 - (13 % 7) = 7 - 6 = 1
+
+Try:  
+i = 1 → (3 + 1×1) % 10 = 4 → Empty → Place at index 4
+
+Final Hash Table (partial view):
+
+Index 3 → 23  
+Index 4 → 13  
+Index 9 → 43
+
+---
+
+### ⏱ Time Complexity
+- Best Case: O(1)
+- Average Case: O(1)
+- Worst Case: O(n)
+
+---
+
+### 💾 Space Complexity
+- O(TABLE_SIZE)
+
+---
+
+### 📌 Advantages
+- Reduces both primary and secondary clustering
+- Better key distribution
+- More efficient than Linear and Quadratic Probing
+
+---
+
+### ⚠️ Disadvantages
+- Slightly more complex implementation
+- Requires careful selection of second hash function
+- Performance decreases when load factor is high
+
+---
+
+### 🏁 Conclusion
+Hash Table with Double Hashing is an efficient collision resolution method. By using two hash functions, it distributes keys more uniformly and minimizes clustering, making it one of the best open addressing techniques for hash tables.
+
+---
