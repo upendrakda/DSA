@@ -3312,3 +3312,129 @@ Index 9 → 43
 Hash Table with Double Hashing is an efficient collision resolution method. By using two hash functions, it distributes keys more uniformly and minimizes clustering, making it one of the best open addressing techniques for hash tables.
 
 ---
+
+## 🌳 Binary Tree Implementation
+
+### 📘 Introduction
+A Binary Tree is a hierarchical data structure in which each node has at most two children, called:
+- Left child
+- Right child
+It is widely used in searching, sorting, expression trees, and hierarchical data representation.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Node Structure
+Each node contains:
+- Data
+- Pointer to left child
+- Pointer to right child
+
+2️⃣ Root Node
+- The topmost node of the tree
+
+3️⃣ Leaf Node
+- A node with no children
+
+4️⃣ Subtree
+- Left and right parts of a node form subtrees
+
+5️⃣ Tree Traversals
+- Inorder Traversal → Left → Root → Right
+- Preorder Traversal → Root → Left → Right
+- Postorder Traversal → Left → Right → Root
+
+---
+
+### 🧠 Algorithm: Binary Tree Creation and Traversal
+1. Start
+2. Call createTree()
+3. Perform Inorder traversal
+4. Perform Preorder traversal
+5. Perform Postorder traversal
+6. Stop
+
+    #### Algorithm: createTree()
+1. Read value
+2. If value = -1
+    - Return NULL
+3. Create new node
+4. Recursively create left subtree
+5. Recursively create right subtree
+6. Return node
+
+    #### Algorithm: Inorder(root)
+1. If root ≠ NULL
+    - Call Inorder(root→left)
+    - Print root→data
+    - Call Inorder(root→right)
+
+    #### Algorithm: Preorder(root)
+1. If root ≠ NULL
+    - Print root→data
+    - Call Preorder(root→left)
+    - Call Preorder(root→right)
+
+    #### Algorithm: Postorder(root)
+1. If root ≠ NULL
+    - Call Postorder(root→left)
+    - Call Postorder(root→right)
+    - Print root→data
+
+---
+
+### 🔁 Example
+If user enters:
+```Code
+1
+2
+-1
+-1
+3
+-1
+-1
+```
+
+Tree formed:
+```Code
+        1
+       / \
+      2   3
+```
+
+Traversals:
+- Inorder → 2 1 3
+- Preorder → 1 2 3
+- Postorder → 2 3 1
+
+---
+
+### ⏱ Time Complexity
+- Tree Creation → O(n)
+- Each Traversal → O(n)
+
+---
+
+### 💾 Space Complexity
+- O(n) (for storing nodes)
+- O(h) recursion stack (h = height of tree)
+
+---
+
+### 📌 Advantages
+- Efficient hierarchical representation
+- Supports recursive operations easily
+- Used in many advanced data structures
+
+---
+
+### ⚠️ Disadvantages
+- Can become unbalanced
+- Recursive implementation uses stack space
+
+---
+
+### 🏁 Conclusion
+Binary Tree is a fundamental data structure in computer science. It allows efficient representation of hierarchical data and forms the basis for advanced structures like Binary Search Trees, Heaps, and Expression Trees.
+
+---
