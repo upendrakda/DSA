@@ -3438,3 +3438,164 @@ Traversals:
 Binary Tree is a fundamental data structure in computer science. It allows efficient representation of hierarchical data and forms the basis for advanced structures like Binary Search Trees, Heaps, and Expression Trees.
 
 ---
+
+## 🌳 Binary Search Tree (BST) Implementation
+
+### 📘 Introduction
+A Binary Search Tree (BST) is a special type of Binary Tree where:
+- All nodes in the left subtree are smaller than the root
+- All nodes in the right subtree are greater than the root
+- Both left and right subtrees are also BSTs
+BST allows efficient searching, insertion, and deletion.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ BST Property
+For every node:
+```Code
+Left subtree values < Root < Right subtree values
+```
+
+2️⃣ Insertion
+- If value < root → go left
+- If value > root → go right
+
+3️⃣ Searching
+- Compare with root
+- Move left or right accordingly
+
+4️⃣ Deletion Cases
+- Case 1: Node is a leaf
+- Case 2: Node has one child
+- Case 3: Node has two children
+    - Replace with inorder successor (smallest value in right subtree)
+
+5️⃣ Traversals
+- Inorder (L → R → R) gives sorted output
+- Preorder
+- Postorder
+
+---
+
+### 🧠 Algorithm: Main Program
+1. Start
+2. Clear the screen
+3. Set root = NULL
+4. Repeat until user chooses Exit
+    - Display menu (Insert, Delete, Search, Display, Exit)
+    - Read choice  
+    
+    If choice = 1 (Insert)
+    - Read value
+    - Insert value into BST  
+
+    If choice = 2 (Delete)
+    - Read value
+    - Delete value from BST  
+
+    If choice = 3 (Search)
+    - Read value
+    - If element found → Display "Element found"
+    - Else → Display "Element not found" 
+
+    If choice = 4 (Display)
+    - Perform inorder traversal
+5. Stop
+
+    #### Algorithm: Insert in BST
+    1. If root is NULL
+        - Create new node
+        - Return node
+    2. If key < root data
+        - Insert into left subtree
+    3. Else if key > root data
+        - Insert into right subtree
+    4. Return root
+
+    #### Algorithm: Search in BST
+    1. If root is NULL or root data equals key
+        - Return root
+    2. If key < root data
+        - Search in left subtree
+    3. Else
+        - Search in right subtree
+
+    #### Algorithm: Delete in BST
+    1. If root is NULL
+        - Return root
+    2. If key < root data
+        - Delete from left subtree
+    3. Else if key > root data
+        - Delete from right subtree
+    4. Else (node found)
+        - Case 1: No left child
+            - Replace node with right child
+        - Case 2: No right child
+            - Replace node with left child
+        - Case 3: Two children
+            - Find minimum value in right subtree
+            - Replace node data with that value
+            - Delete that node
+    5. Return root
+
+    #### Algorithm: Inorder Traversal
+    1. If root is not NULL
+        - Traverse left subtree
+        - Print root data
+        - Traverse right subtree
+    2. Return
+
+---
+
+### 🔁 Example
+Insert: 50 30 70 20 40 60 80
+
+BST formed:
+```Code
+        50
+       /  \
+     30    70
+    / \    / \
+   20 40  60 80
+```
+
+Inorder Traversal →  
+20 30 40 50 60 70 80 (Sorted order)
+
+---
+
+### ⏱ Time Complexity
+| Operation | Average | Worst Case |
+| :--- | :---: | :---: |
+| Insert | O(log n) | O(n) |
+| Search | O(log n) | O(n) |
+| Delete | O(log n) | O(n) |
+
+(Worst case occurs when tree becomes skewed)
+
+---
+
+### 💾 Space Complexity
+- O(n) for storing nodes
+- O(h) recursion stack
+
+---
+
+### 📌 Advantages
+- Efficient searching
+- Maintains sorted order
+- Dynamic data structure
+
+---
+
+### ⚠️ Disadvantages
+- Can become unbalanced
+- Worst-case O(n) if skewed
+
+---
+
+### 🏁 Conclusion
+Binary Search Tree is an efficient data structure for dynamic data storage. It provides fast insertion, deletion, and searching when balanced and is widely used in databases and indexing systems.
+
+---
