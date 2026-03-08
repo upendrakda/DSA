@@ -3599,3 +3599,131 @@ Inorder Traversal →
 Binary Search Tree is an efficient data structure for dynamic data storage. It provides fast insertion, deletion, and searching when balanced and is widely used in databases and indexing systems.
 
 ---
+
+## 🌳 AVL Tree Implementation
+
+### 📘 Introduction
+An AVL Tree is a self-balancing Binary Search Tree (BST) where the difference between the height of left and right subtrees (called Balance Factor) is at most 1 for every node.
+
+It was introduced by Adelson-Velsky and Landis.
+
+AVL tree automatically balances itself after insertion and deletion, ensuring efficient operations.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Balance Factor  
+*Balance Factor=Height(Left Subtree)−Height(Right Subtree)*  
+For AVL Tree:
+- Balance Factor = -1, 0, or +1
+
+2️⃣ Rotations (To Maintain Balance)  
+If balance factor becomes invalid, rotations are performed:
+| Case | Condition | Rotation |
+| :--- | :--- | :--- |
+| LL | Left-Left heavy | Right Rotation |
+| RR | Right-Right heavy | Left Rotat |
+| LR | Left-Right heavy | Left + Rig |
+| RL | Right-Left heavy | Right + Le |
+
+3️⃣ Height of Node  
+Height = 1 + max(height of left, height of right)
+
+---
+
+### 🧠 Algorithm: Main Program
+1. Start
+2. Clear the screen
+3. Set root = NULL
+4. Read number of elements n
+5. Repeat n times
+    - Read value
+6. Insert value into AVL tree using insert()
+7. Display "Inorder Traversal"
+8. Call inorder(root)
+9. Stop
+
+    ### Algorithm: Insert in AVL Tree
+    1. If node is NULL
+        - Create new node
+        - Return node
+    2. If key < node->data
+        - Insert into left subtree
+    3. Else if key > node->data
+        - Insert into right subtree
+    4. Update height of current node
+    5. Find balance factor
+        - balance = height(left) − height(right)
+    6. If balance > 1 and key < left child
+        - Perform Right Rotation (LL case)
+    7. If balance < -1 and key > right child
+        - Perform Left Rotation (RR case)
+    8. If balance > 1 and key > left child
+        - Perform Left Rotation on left child
+        - Then Right Rotation (LR case)
+    9. If balance < -1 and key < right child
+        - Perform Right Rotation on right child
+        - Then Left Rotation (RL case)
+    10. Return node
+
+    ### Algorithm: Inorder Traversal
+    1. If root is not NULL
+        - Traverse left subtree
+        - Print root data
+        - Traverse right subtree
+    2. Return
+
+---
+
+### 🔁 Example
+Insert elements:  
+10 20 30
+
+Without AVL → Tree becomes skewed
+
+With AVL → Rotation occurs
+
+Final Tree:
+```Code
+      20
+     /  \
+   10    30
+```
+
+---
+
+### ⏱ Time Complexity
+| Operation | Time Complexity |
+| :--- | :--- |
+| Insert | O(log n) |
+| Search | O(log n) |
+| Delete | O(log n) |
+
+AVL tree always maintains height = O(log n)
+
+---
+
+### 💾 Space Complexity
+- O(n) for storing nodes
+- O(log n) recursion stack
+
+---
+
+### 📌 Advantages
+- Always balanced
+- Guaranteed O(log n) operations
+- Efficient searching
+
+---
+
+### ⚠️ Disadvantages
+- More rotations required
+- Slightly complex implementation
+- Extra memory for storing height
+
+---
+
+### 🏁 Conclusion
+AVL Tree is a self-balancing Binary Search Tree that guarantees O(log n) time complexity for all major operations. It is ideal when fast search operations are required and tree balance must be maintained automatically.
+
+---
