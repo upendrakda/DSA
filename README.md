@@ -4109,3 +4109,97 @@ Overall Time Complexity → O(V²)
 Prim’s Algorithm is a greedy method that builds the Minimum Spanning Tree by selecting the smallest edge connecting a visited vertex to an unvisited vertex. It is widely used for network design, road systems, and communication networks.
 
 ---
+
+## 🚀 Dijkstra’s Algorithm for Shortest Path
+
+### 📘 Introduction
+Dijkstra’s Algorithm is a greedy algorithm used to find the shortest path from a single source vertex to all other vertices in a weighted graph.
+
+It works only for:
+- Graphs with non-negative edge weights
+- Directed or Undirected graphs
+
+It is widely used in:
+- GPS navigation systems
+- Network routing protocols
+- Shortest path problems
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Distance Array
+- Stores shortest distance from source to each vertex
+
+2️⃣ Visited Array
+- Keeps track of processed vertices
+
+3️⃣ Greedy Choice
+- Always pick the vertex with minimum tentative distance
+
+4️⃣ Relaxation
+- Update shortest distance if a shorter path is found
+
+---
+
+### 🧠 Algorithm: Main Program
+1. Start
+2. Read number of vertices n
+3. Read adjacency matrix
+4. Read source vertex src
+5. Call dijkstra(src)
+6. Stop
+
+    #### Algorithm: Dijkstra’s Algorithm
+    1. Initialize arrays:
+        - Set all dist[i] = ∞
+        - Set all visited[i] = 0
+    2. Set dist[src] = 0
+    3. Repeat n - 1 times:
+        - Select vertex u with minimum distance
+        - Mark u as visited
+        - For each adjacent vertex v
+            - If not visited and edge exists
+                - If dist[u] + weight < dist[v]
+                    - Update dist[v]
+    4. Print shortest distance from source to all vertices
+    5. End
+
+    #### Algorithm: MinDistance Function
+    1. Set min = ∞
+    2. For each vertex v
+        - If not visited and dist[v] < min
+            - Update min
+            - Store index
+    3. Return vertex with minimum distance
+
+---
+
+### ⏱ Time Complexity
+| Implementation	| Time Complexity |
+| :--- | :--- |
+| Adjacency Matrix	| O(V²) |
+| Using Min Heap	| O((V + E) log V) |
+
+### 💾 Space Complexity
+- Adjacency matrix → O(V²)
+- Distance & visited arrays → O(V)
+
+---
+
+### 📌 Advantages
+- Efficient for shortest path in non-negative graphs
+- Simple greedy approach
+- Works for both directed and undirected graphs
+
+---
+
+### ⚠️ Disadvantages
+- Does NOT work with negative weight edges
+- Slower for large sparse graphs (without heap optimization)
+
+---
+
+### 🏁 Conclusion
+Dijkstra’s Algorithm is a greedy technique used to find the shortest path from a single source to all other vertices in a weighted graph. It repeatedly selects the nearest unvisited vertex and updates distances using relaxation.
+
+---
