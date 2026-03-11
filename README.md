@@ -3727,3 +3727,137 @@ AVL tree always maintains height = O(log n)
 AVL Tree is a self-balancing Binary Search Tree that guarantees O(log n) time complexity for all major operations. It is ideal when fast search operations are required and tree balance must be maintained automatically.
 
 ---
+
+## 🌐 Graph Implementation using Adjacency Matrix
+
+### 📘 Introduction
+A Graph is a non-linear data structure consisting of:
+- Vertices (Nodes)
+- Edges (Connections between vertices)
+
+Graphs are used in networks, maps, social media, routing algorithms, etc.
+
+In this program, the graph is represented using an Adjacency Matrix, and traversal is performed using:
+- BFS (Breadth First Search)
+- DFS (Depth First Search)
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Adjacency Matrix  
+For a graph with n vertices, we use an n × n matrix.
+- matrix[i][j] = 1 → Edge exists
+- matrix[i][j] = 0 → No edge
+
+2️⃣ BFS (Breadth First Search)
+- Uses Queue
+- Visits nodes level by level
+- Explores neighbors first before going deeper
+
+3️⃣ DFS (Depth First Search)
+- Uses Recursion or Stack
+- Explores as deep as possible before backtracking
+
+---
+
+### 🧠 Algorithm: Main Program
+1. Start
+2. Read number of vertices n
+3. Initialize adjacency matrix graph[n][n] = 0
+4. Read number of edges
+5. For each edge
+    - Read u and v
+    - Set graph[u][v] = 1
+    - Set graph[v][u] = 1 (for undirected graph)
+6. Read starting vertex
+7. Call BFS(start)
+8. Reset visited array
+9. Call DFS(start)
+10. Stop
+
+    #### Algorithm: Breadth First Search (BFS)
+1. Initialize all vertices as not visited
+2. Mark starting vertex as visited
+3. Insert starting vertex into queue
+4. Repeat until queue is empty
+    - Remove vertex from queue
+    - Print the vertex
+    - For every adjacent vertex
+    - If not visited
+        - Mark as visited
+            - Insert into queue
+            - End
+
+    #### Algorithm: Depth First Search (DFS)
+1. Mark current vertex as visited
+2. Print the vertex
+3. For every adjacent vertex
+    - If not visited
+        - Recursively call DFS for that vertex
+4. End
+
+    #### Algorithm: Adjacency Matrix Representation
+1. Create a 2D array graph[n][n]
+2. Initialize all elements to 0
+3. For each edge (u, v)
+    - Set graph[u][v] = 1
+    - Set graph[v][u] = 1 (for undirected graph)
+
+---
+
+### 🔁 Example
+Vertices = 4
+Edges:
+0 1  
+0 2  
+1 3  
+2 3  
+
+Graph Representation:
+```Code
+      0
+     / \
+    1   2
+     \ /
+      3
+```
+
+Starting vertex = 0
+
+BFS → 0 1 2 3  
+DFS → 0 1 3 2
+
+---
+
+### ⏱ Time Complexity
+| Operation | Time | Complexity |
+| :--- | :---: | :--- |
+| BFS | O(V²) | (Adjacency Matrix) |
+| DFS | O(V²) | (Adjacency Matrix) |
+
+---
+
+### 💾 Space Complexity
+- O(V²) for adjacency matrix
+- O(V) for visited array
+- O(V) for queue/recursion stack
+
+---
+
+### 📌 Advantages
+- Simple representation
+- Easy to implement
+- Good for dense graphs
+
+---
+
+### ⚠️ Disadvantages
+- Uses more memory for sparse graphs
+- Not efficient for very large graphs
+
+---
+
+### 🏁 Conclusion
+Graph using Adjacency Matrix is a simple and effective way to represent graphs. BFS explores level by level using a queue, while DFS explores deeply using recursion. Both are fundamental graph traversal techniques widely used in computer science.
+
+---
