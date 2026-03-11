@@ -3861,3 +3861,162 @@ DFS → 0 1 3 2
 Graph using Adjacency Matrix is a simple and effective way to represent graphs. BFS explores level by level using a queue, while DFS explores deeply using recursion. Both are fundamental graph traversal techniques widely used in computer science.
 
 ---
+
+## 🌳 Kruskal’s Algorithm for Minimum Spanning Tree (MST)
+
+### 📘 Introduction
+A Minimum Spanning Tree (MST) of a connected, weighted graph is a subset of edges that:
+- Connects all vertices
+- Has no cycles
+- Has minimum total edge weight
+
+Kruskal’s Algorithm is a greedy algorithm used to find the MST of a graph.
+
+It selects the smallest weight edges one by one while avoiding cycles.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Greedy Strategy
+- Always choose the edge with the smallest weight
+
+2️⃣ Sorting of Edges
+- All edges are sorted in ascending order of weight
+
+3️⃣ Disjoint Set (Union-Find)  
+Used to detect cycles
+
+Operations:
+- Find() → Find parent of a set
+- Union() → Merge two sets
+
+If two vertices belong to the same set → adding edge creates a cycle → reject it
+
+---
+
+### 🧠 Algorithm: Kruskal’s Algorithm (General)
+1. Start
+2. Read number of vertices V and edges E
+3. Store all edges
+4. Sort edges in ascending order of weight
+5. Initialize disjoint sets (each vertex is its own parent)
+6. For each edge (u, v, w):
+    - If Find(u) ≠ Find(v)
+        - Include edge in MST
+        - Union(u, v)
+7. Stop when MST has (V - 1) edges
+8. Print MST and total cost
+9. Stop
+
+---
+
+### 🧠 Algorithm: Kruskal’s Algorithm (Main Program)
+1. Start
+2. Read number of vertices V
+3. Read number of edges E
+4. Read all edges as (u, v, weight) and store in edges[]
+5. Call kruskal() function
+6. Stop
+
+    #### Algorithm: kruskal()
+    1. Set count = 0
+    2. Set totalCost = 0
+    3. Sort all edges in ascending order of weight using qsort()
+    4. For each vertex i = 0 to V-1
+        - Set parent[i] = i
+    5. Display "Edges in MST"
+    6. For i = 0 to E-1 and while count < V-1
+        - Let u = edges[i].u
+        - Let v = edges[i].v
+        - Let weight = edges[i].weight
+        - If find(u) ≠ find(v)
+            - Display edge (u -- v == weight)
+            - totalCost = totalCost + weight
+            - Call unionSets(u, v)
+            - count = count + 1
+    7. Display totalCost
+    8. Return
+
+    #### Algorithm: find(i)
+    1. If parent[i] == i
+        - Return i
+    2. Else
+        - Set parent[i] = find(parent[i])
+        - Return parent[i]
+
+    ### Algorithm: unionSets(x, y)
+    1. Set rootX = find(x)
+    2. Set rootY = find(y)
+    3. Set parent[rootY] = rootX
+    4. Return
+
+    ### Algorithm: compare(a, b)
+    1. Cast a and b to structure Edge
+    2. Return e1.weight - e2.weight
+
+---
+
+### 🔁 Example
+Vertices = 4  
+Edges:  
+```Code
+0 1 10  
+0 2 6  
+0 3 5  
+1 3 15  
+2 3 4  
+```
+
+After sorting by weight:
+```Code
+2--3 (4)  
+0--3 (5)  
+0--2 (6)  
+0--1 (10)  
+1--3 (15) 
+```
+
+MST Edges:
+```Code
+2--3 (4)  
+0--3 (5)  
+0--1 (10)  
+```
+
+Total Cost = 19
+
+---
+
+### ⏱ Time Complexity
+| Step | Complexity |
+| :--- | :--- |
+| Sorting edges | O(E log E) |
+Union-Find operations | O(E α(V)) |
+
+Overall → O(E log E)
+
+---
+
+### 💾 Space Complexity
+- O(E) for storing edges
+- O(V) for parent array
+
+---
+
+### 📌 Advantages
+- Efficient for sparse graphs
+- Simple greedy approach
+- Easy to implement with Union-Find
+
+---
+
+### ⚠️ Disadvantages
+- Needs sorting of edges
+- Not efficient for dense graphs compared to Prim’s algorithm
+
+---
+
+### 🏁 Conclusion
+Kruskal’s Algorithm is a greedy approach to find the Minimum Spanning Tree. By sorting edges and avoiding cycles using Union-Find, it efficiently constructs an MST with minimum total weight.
+
+---
