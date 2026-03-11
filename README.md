@@ -4020,3 +4020,92 @@ Overall → O(E log E)
 Kruskal’s Algorithm is a greedy approach to find the Minimum Spanning Tree. By sorting edges and avoiding cycles using Union-Find, it efficiently constructs an MST with minimum total weight.
 
 ---
+
+## 🌳 Prim’s Algorithm for Minimum Spanning Tree (MST)
+
+### 📘 Introduction
+A Minimum Spanning Tree (MST) is a subset of edges of a connected, weighted, undirected graph that:
+- Connects all vertices
+- Contains no cycles
+- Has the minimum total edge weight
+
+Prim’s Algorithm is a greedy algorithm used to find the MST.
+
+Unlike Kruskal’s Algorithm, Prim’s Algorithm builds the MST vertex by vertex, starting from any one vertex and always choosing the minimum weight edge that connects a visited vertex to an unvisited vertex.
+
+---
+
+### 🧠 Core Concepts
+1️⃣ Greedy Approach
+- At every step, choose the minimum weight edge connecting MST to a new vertex
+
+2️⃣ Key Array
+- Stores minimum weight required to connect each vertex
+
+3️⃣ Visited Array
+- Keeps track of vertices already included in MST
+
+4️⃣ Parent Array
+- Stores MST structure
+
+---
+
+### 🧠 Algorithm: Main Program
+1. Start
+2. Read number of vertices n
+3. Read adjacency matrix
+4. Call prim()
+5. Stop
+
+    #### Algorithm: Prim’s Algorithm
+    1. Initialize arrays:
+        - Set all key[i] = ∞
+        - Set all visited[i] = 0
+    2. Set key[0] = 0
+    3. Set parent[0] = -1
+    4. Repeat n - 1 times:
+        - Select vertex u with minimum key value
+        - Mark u as visited
+        - For each adjacent vertex v
+            - If not visited and weight < key[v]
+                - Set parent[v] = u
+                - Update key[v]
+    5. Print MST edges using parent array
+    6. Calculate and print total cost
+    7. End
+
+---
+
+### ⏱ Time Complexity
+| Operation	| Complexity |
+| :--- | :--- |
+| Finding minimum key	| O(V) |
+| Total iterations	| O(V²) |
+
+Overall Time Complexity → O(V²)
+
+---
+
+### 💾 Space Complexity
+- Adjacency matrix → O(V²)
+- Key, parent, visited arrays → O(V)
+
+---
+
+### 📌 Advantages
+- Simple to implement
+- Efficient for dense graphs
+- Works well with adjacency matrix
+
+---
+
+### ⚠️ Disadvantages
+- Less efficient for sparse graphs compared to Kruskal’s
+- O(V²) when adjacency matrix is used
+
+---
+
+### 🏁 Conclusion
+Prim’s Algorithm is a greedy method that builds the Minimum Spanning Tree by selecting the smallest edge connecting a visited vertex to an unvisited vertex. It is widely used for network design, road systems, and communication networks.
+
+---
