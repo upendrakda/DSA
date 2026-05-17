@@ -1,5 +1,74 @@
 # Data Structure & Algorithm
 
+Data Structures and Algorithms (DSA) is one of the fundamental subjects in computer science that focuses on organizing, storing, and processing data efficiently.
+
+It helps programmers:
+- Solve problems systematically
+- Optimize memory usage
+- Improve execution speed
+- Develop efficient software applications
+
+DSA is widely used in:
+- Software development
+- Operating systems
+- Databases
+- Artificial Intelligence
+- Computer networks
+- Web applications
+
+---
+
+## 🗝️ Key Idea
+
+Efficient data organization leads to:
+- Faster searching
+- Faster insertion and deletion
+- Better memory management
+
+Different problems require different data structures.
+
+---
+
+## 📌 Contents
+
+01. [Dynamic Memory Allocation (DMA) in C](#dynamic-memory-allocation-dma-in-c)
+02. [Stack Implementation Using Array](#stack-implementation-using-array)
+03. [Infix to Postfix Expression Conversion](#-infix-to-postfix-expression-conversion)
+04. [Infix to Prefix Expression Conversion](#-infix-to-prefix-expression-conversion)
+05. [Postfix Expression Evaluation](#postfix-expression-evaluation)
+06. [Prefix Expression Evaluation](#prefix-expression-evaluation)
+07. [Linear Queue Implementation Using Array](#linear-queue-implementation-using-array)
+08. [Circular Queue Implementation Using Array](#circular-queue-implementation-using-array)
+09. [Factorial of a Number Using Recursion](#factorial-of-a-number-using-recursion)
+10. [Fibonacci Sequence Using Recursion](#fibonacci-sequence-using-recursion)
+11. [GCD of Two Numbers Using Recursion](#gcd-of-two-numbers-using-recursion)
+12. [Tower of Hanoi Using Recursion](#tower-of-hanoi-using-recursion)
+13. [Singly Linked List Implementation](#singly-linked-list-implementation)
+14. [Doubly Linked List Implementation](#doubly-linked-list-implementation)
+15. [Circular Linked List Implementation](#circular-linked-list-implementation)
+16. [Stack Implementation Using Linked List](#stack-implementation-using-linked-list)
+17. [Queue Implementation Using Linked List](#queue-implementation-using-linked-list)
+18. [Bubble Sort Implementation](#bubble-sort-implementation)
+19. [Selection Sort Implementation](#selection-sort-implementation)
+20. [Shell Sort Implementation](#shell-sort-implementation)
+21. [Merge Sort Implementation](#merge-sort-implementation)
+22. [Quick Sort Implementation](#quick-sort-implementation)
+23. [Heap Sort Implementation](#heap-sort-implementation)
+24. [Sequential Search (Linear Search) Implementation](#sequential-search-linear-search-implementation)
+25. [Binary Search Implementation](#binary-search-implementation)
+26. [Hash Table with Linear Probing](#hash-table-with-linear-probing)
+27. [Hash Table with Quadratic Probing](#hash-table-with-quadratic-probing)
+28. [Hash Table with Double Hashing](#hash-table-with-double-hashing)
+29. [Binary Tree Implementation](#-binary-tree-implementation)
+30. [Binary Search Tree (BST) Implementation](#-binary-search-tree-bst-implementation)
+31. [AVL Tree Implementation](#-avl-tree-implementation)
+32. [Graph Implementation using Adjacency Matrix](#-graph-implementation-using-adjacency-matrix)
+33. [Kruskal's Algorithm for Minimum Spanning Tree (MST)](#-kruskals-algorithm-for-minimum-spanning-tree-mst)
+34. [Prim's Algorithm for Minimum Spanning Tree (MST)](#-prims-algorithm-for-minimum-spanning-tree-mst)
+35. [Dijkstra's Algorithm for Shortest Path](#-dijkstras-algorithm-for-shortest-path)
+
+---
+
 ## Dynamic Memory Allocation (DMA) in C
 
 This project demonstrates the implementation of **Dynamic Memory Allocation** in C using the standard library functions: `malloc()`, `calloc()`, `realloc()`, and `free()`.
@@ -68,11 +137,11 @@ free(ptr);
     - 1. Using malloc()
     - 2. Using calloc()
     - 3. Exit
-3. Read the user’s choice
+3. Read the user's choice
 4. If choice = 1, execute using_malloc()
     - Else if choice = 2, execute using_calloc()
     - Else if choice = 3, terminate the program
-    - Else display “Invalid Input”
+    - Else display "Invalid Input"
 
     #### Algorithm: using_malloc()
     1. Read the total number of elements n
@@ -127,6 +196,8 @@ free(ptr);
 
 Dynamic Memory Allocation provides flexibility and efficient memory management in C programs.
 Proper usage of `malloc()`, `calloc()`, `realloc()`, and `free()` is essential to avoid memory leaks and runtime errors.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -271,13 +342,13 @@ Else → Remove element and decrement top
     - Else if choice = 2, perform pop()
     - Else if choice = 3, perform display()
     - Else if choice = 4, terminate the program
-    - Else display “Invalid input”
+    - Else display "Invalid input"
 6. Repeat steps 3 to 5 until choice = 4
 7. Stop
 
     #### Algorithm: push() Operation
     1. Check stack overflow
-       - If top == MAX − 1, display “Stack is Full” and return
+       - If top == MAX − 1, display "Stack is Full" and return
     2. Read element
        - Input the element to be pushed
     3. Insert element
@@ -287,7 +358,7 @@ Else → Remove element and decrement top
 
     #### Algorithm: pop() Operation
     1. Check stack underflow
-       - If top == −1, display “Stack is Empty” and return
+       - If top == −1, display "Stack is Empty" and return
     2. Remove element
        - Store stack[top] in a variable
        - Decrement top
@@ -297,7 +368,7 @@ Else → Remove element and decrement top
     #### Algorithm: display() Operation
 
     1. Check if stack is empty
-       - If top == −1, display “Stack is Empty” and return
+       - If top == −1, display "Stack is Empty" and return
     2. Display stack elements
        - Print elements from index 0 to top
     3. Return to main menu
@@ -334,6 +405,8 @@ Occurs when trying to pop an element from an **empty stack**.
 ### 🧾 Conclusion
 This program helps in understanding how a **stack works internally using an array**. It clearly demonstrates stack operations and highlights important conditions like **overflow and underflow**, making it a good foundation for learning data structures.
 Actual code implementation can be done using any programming language such as **C, C++, or Java**.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -404,11 +477,11 @@ Actual code implementation can be done using any programming language such as **
 6. If character is an operand
     - Append ch to postfix expression
     - Increment j
-7. If character is ‘(’
+7. If character is '('
     - Push ch onto the stack
-8. If character is ‘)’
-    - Pop operators from stack and append to postfix until ‘(’ is found
-    - Pop and discard ‘(’ from stack
+8. If character is ')'
+    - Pop operators from stack and append to postfix until '(' is found
+    - Pop and discard '(' from stack
 9. If character is an operator
     - While stack is not empty and precedence of stack top ≥ precedence of current operator
         - Pop operator from stack and append to postfix
@@ -463,6 +536,8 @@ ABCD-*+
 ### ✅ Conclusion
 
 This project clearly demonstrates how **stacks simplify expression conversion** and highlights their importance in real-world applications like compilers and interpreters.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -532,11 +607,11 @@ This project clearly demonstrates how **stacks simplify expression conversion** 
 8. If character is an operand
     - Append the character to prefix array
     - Increment j
-9. If character is ‘(’
+9. If character is '('
     - Push it onto the stack
-10. If character is ‘)’
-    - Pop operators from stack and append to prefix until ‘(’ is found
-    - Pop and discard ‘(’ from stack
+10. If character is ')'
+    - Pop operators from stack and append to prefix until '(' is found
+    - Pop and discard '(' from stack
 11. If character is an operator
     - While stack is not empty and precedence of stack top > precedence of current operator
         - Pop operator from stack and append to prefix
@@ -593,6 +668,8 @@ DC-*B+A+
 ### ✅ Conclusion
 
 This project highlights how **infix expressions can be efficiently converted to prefix form** using stacks and string manipulation, making it a key concept in data structures and compiler design.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -699,6 +776,8 @@ Postfix expressions are especially useful for computation because they can be ev
 
 Postfix expression evaluation is a classic application of the stack data structure. By using LIFO principles, complex arithmetic expressions can be evaluated efficiently and systematically. This approach is widely used in compilers and interpreters, making it an important concept in data structures and algorithms.
 
+[⬆️ Get Back to Contents](#-contents)
+
 ---
 
 ## Prefix Expression Evaluation
@@ -797,6 +876,8 @@ In prefix notation, the operator appears before its operands. This notation is w
 
 Prefix expression evaluation is a powerful application of stacks in data structures. By reversing the prefix expression and using stack operations, complex expressions can be evaluated efficiently. This method is widely used in compilers and expression evaluators, making it a fundamental concept in computer science.
 
+[⬆️ Get Back to Contents](#-contents)
+
 ---
 
 ## Linear Queue Implementation Using Array
@@ -881,13 +962,13 @@ In a linear queue, elements are inserted from one end called the rear and delete
     - Else if choice = 2, perform dequeue()
     - Else if choice = 3, perform display()
     - Else if choice = 4, terminate the program
-    - Else display “Invalid choice”
+    - Else display "Invalid choice"
 6. Repeat steps 3 to 5 until choice = 4
 7. Stop
 
     #### Algorithm: enqueue() Operation
     1. Check queue overflow
-        - If rear == MAX − 1, display “Queue is Full” and return
+        - If rear == MAX − 1, display "Queue is Full" and return
     2. Check first insertion
         - If front == −1, set front = 0
     3. Insert element
@@ -898,7 +979,7 @@ In a linear queue, elements are inserted from one end called the rear and delete
 
     #### Algorithm: dequeue() Operation
     1. Check queue underflow
-        - If front == −1 or front > rear, display “Queue is Empty” and return
+        - If front == −1 or front > rear, display "Queue is Empty" and return
     2. Delete element
         - Display element at queue[front]
         - Increment front
@@ -908,7 +989,7 @@ In a linear queue, elements are inserted from one end called the rear and delete
 
     #### Algorithm: display() Operation
     1. Check if queue is empty
-        - If front == −1, display “Queue is Empty” and return
+        - If front == −1, display "Queue is Empty" and return
     2. Display elements
         - Print elements from index front to rear
     3. Return to main menu
@@ -926,6 +1007,8 @@ In a linear queue, elements are inserted from one end called the rear and delete
 ### 🏁 Conclusion
 
 The array implementation of a linear queue provides a clear understanding of queue fundamentals and FIFO behavior. Although simple and efficient for small datasets, it suffers from memory limitations. This implementation serves as a foundational concept for advanced queue structures like circular queues, dequeues, and priority queues.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -1013,13 +1096,13 @@ front == -1
     - Else if choice = 2, perform dequeue()
     - Else if choice = 3, perform display()
     - Else if choice = 4, terminate program
-    - Else display “Invalid choice”
+    - Else display "Invalid choice"
 6. Repeat steps 3 to 5 until choice = 4
 7. Stop
 
     #### Algorithm: enqueue() Operation
     1. Check queue overflow
-        - If (rear + 1) % MAX == front, display “Queue is Full” and return
+        - If (rear + 1) % MAX == front, display "Queue is Full" and return
     2. Check first insertion
         - If front == -1, set front = 0 and rear = 0
         - Else set rear = (rear + 1) % MAX
@@ -1030,7 +1113,7 @@ front == -1
 
     #### Algorithm: dequeue() Operation
     1. Check queue underflow
-        - If front == -1, display “Queue is Empty” and return
+        - If front == -1, display "Queue is Empty" and return
     2. Delete element
         - Display queue[front]
     3. Check if only one element
@@ -1040,7 +1123,7 @@ front == -1
 
     #### Algorithm: display() Operation
     1. Check if queue is empty
-        - If front == -1, display “Queue is Empty” and return
+        - If front == -1, display "Queue is Empty" and return
     2. Display elements
         - Set i = front
         - Print queue[i]
@@ -1060,6 +1143,8 @@ front == -1
 
 ### 🏁 Conclusion
 The array implementation of a circular queue efficiently utilizes memory by allowing wrap-around movement of pointers. It eliminates the major drawback of linear queues where unused spaces cannot be reused. This concept forms the foundation for more advanced data structures and real-world queue management systems.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -1108,7 +1193,7 @@ In this program, factorial is calculated using recursion, where a function calls
 3. In main()
 - Read number num
 4. If num < 0
-- Display “Factorial not defined for negative numbers”
+- Display "Factorial not defined for negative numbers"
 5. Else
 - Call factorial(num)
 - Display result
@@ -1132,6 +1217,8 @@ In this program, factorial is calculated using recursion, where a function calls
 
 ### 🏁 Conclusion
 Recursion provides a simple and elegant way to calculate factorial by breaking the problem into smaller subproblems. The base condition ensures termination, and each recursive call reduces the value of n until it reaches 1.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -1182,7 +1269,7 @@ In this program, Fibonacci numbers are generated using recursion, where the func
 3. In main()
 - Read number of terms n
 4. If n <= 0
-- Display “Enter a positive number”
+- Display "Enter a positive number"
 5. Else
 - For i = 0 to n − 1
     - Print fibonacci(i)
@@ -1208,6 +1295,8 @@ In this program, Fibonacci numbers are generated using recursion, where the func
 
 ### 🏁 Conclusion
 Recursion provides a simple way to generate Fibonacci numbers by defining the problem in terms of smaller subproblems. Although easy to understand, recursive Fibonacci is less efficient for large inputs compared to iterative or dynamic programming approaches.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -1258,7 +1347,7 @@ GCD(a, b) = GCD(b, a % b)
 3. In main()
 - Read two integers num1 and num2
 4. If num1 < 0 or num2 < 0
-- Display “Enter positive integers only”
+- Display "Enter positive integers only"
 5. Else
 - Call gcd(num1, num2)
 - Display result
@@ -1282,6 +1371,8 @@ GCD(a, b) = GCD(b, a % b)
 ### 🏁 Conclusion
 
 The recursive Euclidean algorithm is an efficient method to compute the GCD of two numbers. It reduces the problem size at each step and terminates when the remainder becomes zero, providing a fast and elegant solution.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -1331,17 +1422,17 @@ The goal is to move all disks from the source rod to the destination rod using a
 3. In main()
 - Read number of disks n
 4. If n <= 0
-- Display “Number of disks must be positive”
+- Display "Number of disks must be positive"
 5. Else
 - Call towerOfHanoi(n, 'A', 'C', 'B')
 6. Stop
 
     #### Algorithm: towerOfHanoi(n, source, destination, auxiliary)
     1. If n == 1
-        - Print “Move disk 1 from source to destination”
+        - Print "Move disk 1 from source to destination"
         - Return
     2. Call towerOfHanoi(n − 1, source, auxiliary, destination)
-    3. Print “Move disk n from source to destination”
+    3. Print "Move disk n from source to destination"
     4. Call towerOfHanoi(n − 1, auxiliary, destination, source)
     5. Return
 
@@ -1358,6 +1449,8 @@ The goal is to move all disks from the source rod to the destination rod using a
 ### 🏁 Conclusion
 
 The Tower of Hanoi problem is a classic example of recursion where a complex problem is solved by dividing it into smaller subproblems. The recursive approach provides a clear and elegant solution, demonstrating the power of divide-and-conquer techniques.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -1439,7 +1532,7 @@ In this program, different operations such as node creation, insertion, deletion
         - Set head = newNode
         - Return
     3. Traverse list until last node
-    4. Set last node’s next = newNode
+    4. Set last node's next = newNode
     5. Return
 
     #### Algorithm: Insert at Position
@@ -1454,7 +1547,7 @@ In this program, different operations such as node creation, insertion, deletion
 
     #### Algorithm: Delete at Beginning
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. Store head in temp
     3. Set head = head->next
     4. Free temp
@@ -1462,18 +1555,18 @@ In this program, different operations such as node creation, insertion, deletion
 
     #### Algorithm: Delete at End
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. If only one node
         - Free head
         - Set head = NULL
     3. Traverse to last node
-    4. Set second-last node’s next = NULL
+    4. Set second-last node's next = NULL
     5. Free last node
     6. Return
 
     #### Algorithm: Delete at Position
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. If position = 1
         - Call Delete at Beginning
     3. Traverse to desired position
@@ -1485,7 +1578,7 @@ In this program, different operations such as node creation, insertion, deletion
 
     #### Algorithm: Display
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. Set temp = head
     3. While temp != NULL
         - Print temp->data
@@ -1507,6 +1600,8 @@ In this program, different operations such as node creation, insertion, deletion
 ### 🏁 Conclusion
 
 The singly linked list provides flexible and dynamic storage compared to arrays. It allows efficient insertion and deletion operations without shifting elements. This implementation helps in understanding pointer manipulation and dynamic memory allocation concepts in data structures.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -1609,7 +1704,7 @@ In this program, various operations such as node creation, insertion, deletion, 
 
     #### Algorithm: Delete at Beginning
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. Store head in temp
     3. Set head = head->next
     4. If head != NULL
@@ -1619,7 +1714,7 @@ In this program, various operations such as node creation, insertion, deletion, 
 
     #### Algorithm: Delete at End
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. If only one node
         - Free head
         - Set head = NULL
@@ -1630,7 +1725,7 @@ In this program, various operations such as node creation, insertion, deletion, 
 
     #### Algorithm: Delete at Position
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. If position = 1
         - Call Delete at Beginning
     3. Traverse to desired position
@@ -1643,7 +1738,7 @@ In this program, various operations such as node creation, insertion, deletion, 
 
     #### Algorithm: Display
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. Set temp = head
     3. While temp != NULL
         - Print temp->data
@@ -1665,6 +1760,8 @@ In this program, various operations such as node creation, insertion, deletion, 
 ### 🏁 Conclusion
 
 Doubly linked lists provide bidirectional traversal, making insertion and deletion more flexible than singly linked lists. This implementation demonstrates dynamic memory management, pointer manipulation, and advanced linked list operations effectively.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -1696,7 +1793,7 @@ In this program, the following operations are implemented:
 - If head == NULL, the list is empty
 
 3️⃣ Circular Nature
-- Last node’s next pointer points to head
+- Last node's next pointer points to head
 - Traversal uses a do-while loop
 
 4️⃣ Dynamic Memory Allocation
@@ -1756,7 +1853,7 @@ In this program, the following operations are implemented:
     1. If position = 1
         - Call Insert at Beginning
     2. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     3. Traverse to position − 1
     4. If position invalid
         - Display error
@@ -1767,7 +1864,7 @@ In this program, the following operations are implemented:
 
     #### Algorithm: Delete at Beginning
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. If only one node (head->next == head)
         - Free head
         - Set head = NULL
@@ -1781,7 +1878,7 @@ In this program, the following operations are implemented:
 
     #### Algorithm: Delete at End
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. If only one node
         - Free head
         - Set head = NULL
@@ -1793,7 +1890,7 @@ In this program, the following operations are implemented:
 
     #### Algorithm: Delete at Position
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. If position = 1
         - Call Delete at Beginning
     3. Traverse to desired position
@@ -1805,13 +1902,13 @@ In this program, the following operations are implemented:
 
     #### Algorithm: Display
     1. If head == NULL
-        - Display “List is empty”
+        - Display "List is empty"
     2. Set temp = head
     3. Repeat
         - Print temp->data
         - Set temp = temp->next  
         Until temp == head
-    4. Print “(head)”
+    4. Print "(head)"
     5. Return
 
 ---
@@ -1828,6 +1925,8 @@ In this program, the following operations are implemented:
 ### 🏁 Conclusion
 
 A Circular Linked List connects the last node back to the first node, forming a loop. It eliminates NULL termination and is efficient for cyclic processes like scheduling. This implementation demonstrates insertion, deletion, and traversal operations using proper pointer manipulation.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -1878,7 +1977,7 @@ Each node contains:
     #### Algorithm: Push(value)
     1. Allocate memory for new node
     2. If memory allocation fails
-        - Display “Stack Overflow”
+        - Display "Stack Overflow"
         - Return
     3. Set newNode->data = value
     4. Set newNode->next = top
@@ -1888,7 +1987,7 @@ Each node contains:
 
     #### Algorithm: Pop()
     1. If top == NULL
-        - Display “Stack Underflow”
+        - Display "Stack Underflow"
         - Return
     2. Store top in temp
     3. Display popped element
@@ -1898,7 +1997,7 @@ Each node contains:
 
     #### Algorithm: Display()
     1. If top == NULL
-        - Display “Stack is empty”
+        - Display "Stack is empty"
         - Return
     2. Set temp = top
     3. While temp != NULL
@@ -1920,6 +2019,8 @@ Each node contains:
 ### 🏁 Conclusion
 
 The stack implemented using a linked list provides dynamic memory allocation and efficient push and pop operations in O(1) time complexity. It eliminates size limitations found in array-based stacks and efficiently demonstrates the LIFO principle using pointer manipulation.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -1971,7 +2072,7 @@ Each node contains:
     #### Algorithm: Enqueue(value)
     1. Allocate memory for new node
     2. If memory allocation fails
-        - Display “Queue Overflow”
+        - Display "Queue Overflow"
         - Return
     3. Set newNode->data = value
     4. Set newNode->next = NULL
@@ -1985,7 +2086,7 @@ Each node contains:
 
     #### Algorithm: Dequeue()
     1. If front == NULL
-        - Display “Queue Underflow”
+        - Display "Queue Underflow"
         - Return
     2. Store front in temp
     3. Display dequeued element
@@ -1997,7 +2098,7 @@ Each node contains:
 
     #### Algorithm: Display()
     1. If front == NULL
-        - Display “Queue is empty”
+        - Display "Queue is empty"
         - Return
     2. Set temp = front
     3. While temp != NULL
@@ -2020,6 +2121,8 @@ Each node contains:
 
 The queue implemented using a linked list provides efficient enqueue and dequeue operations in O(1) time complexity. It dynamically allocates memory, eliminating fixed-size limitations of array-based queues while maintaining the FIFO principle effectively.
 
+[⬆️ Get Back to Contents](#-contents)
+
 ---
 
 ## Bubble Sort Implementation
@@ -2028,7 +2131,7 @@ The queue implemented using a linked list provides efficient enqueue and dequeue
 Bubble Sort is a simple comparison-based sorting algorithm.
 It repeatedly compares adjacent elements and swaps them if they are in the wrong order.
 
-With each pass, the largest unsorted element “bubbles up” to its correct position at the end of the array.
+With each pass, the largest unsorted element "bubbles up" to its correct position at the end of the array.
 
 ---
 
@@ -2109,6 +2212,8 @@ And so on, until sorted.
 ### 🏁 Conclusion
 
 Bubble Sort is one of the simplest sorting algorithms. Although it is not efficient for large datasets, it is useful for understanding the concept of sorting and algorithm design. The optimized version improves performance by stopping early if the array becomes sorted.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -2210,6 +2315,8 @@ Sorted array obtained.
 
 Selection Sort repeatedly selects the minimum element and places it in its correct position. Although not efficient for large arrays, it is simple, requires minimal memory, and performs fewer swaps compared to Bubble Sort.
 
+[⬆️ Get Back to Contents](#-contents)
+
 ---
 
 ## Shell Sort Implementation
@@ -2303,6 +2410,8 @@ Result → 2 3 12 34 54
 ### 🏁 Conclusion
 
 Shell Sort improves insertion sort by allowing the exchange of distant elements first. By gradually reducing the gap, it efficiently sorts the array with better performance than basic quadratic sorting algorithms.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -2408,108 +2517,7 @@ Final result →
 
 Merge Sort is a powerful and efficient sorting algorithm based on the divide-and-conquer technique. It guarantees O(n log n) time complexity and is widely used in real-world applications where stable and consistent performance is required.
 
----
-
-## Quick Sort Implementation
-
-### 📘 Introduction
-Quick Sort is a highly efficient divide-and-conquer sorting algorithm.
-It works by selecting a pivot element, partitioning the array around the pivot, and recursively sorting the subarrays.
-
-It is one of the fastest sorting algorithms in practice.
-
----
-
-### 🧠 Core Concepts
-1️⃣ Pivot Element
-- A selected element used to divide the array
-- In this program, the last element is chosen as pivot
-
-2️⃣ Partitioning
-- Elements smaller than pivot are placed on the left
-- Elements greater than pivot are placed on the right
-- Pivot is placed in its correct sorted position
-
-3️⃣ Recursion
-- Apply Quick Sort to left and right subarrays
-
----
-
-### 🧠 Algorithm: Quick Sort
-1. Start
-2. Read number of elements n
-3. Read array elements
-4. Call quickSort(arr, 0, n-1)
-5. Display sorted array
-6. Stop
-
-    #### Algorithm: quickSort(arr, low, high)
-    1. If low < high
-    2. Find partition index pi = partition(arr, low, high)
-    3. Call quickSort(arr, low, pi - 1)
-    4. Call quickSort(arr, pi + 1, high)
-    5. Return
-
-    #### Algorithm: partition(arr, low, high)
-    1. Select pivot = arr[high]
-    2. Set i = low - 1
-    3. For j = low to high - 1
-        - If arr[j] < pivot
-            - Increment i
-            - Swap arr[i] and arr[j]
-    4. Swap arr[i + 1] and arr[high]
-    5. Return i + 1 (pivot index)
-
----
-
-### 🔁 Working Example
-For array:  
-10 7 8 9 1 5
-
-Step 1:  
-Pivot = 5
-
-After partition:  
-1 5 8 9 10 7  
-Pivot index = 1
-
-Step 2:  
-Apply Quick Sort on left and right parts
-
-Final sorted array →  
-1 5 7 8 9 10  
-
----
-
-### ⏱ Time Complexity
-- Best Case: O(n log n)
-- Average Case: O(n log n)
-- Worst Case: O(n²)  
-(Occurs when array is already sorted and poor pivot is chosen)
-
----
-
-### 💾 Space Complexity
-- O(log n) (due to recursion stack)
-
-----
-
-### 📌 Advantages
-- Very fast in practice
-- In-place sorting
-- Efficient for large datasets
-
-----
-
-### ⚠️ Disadvantages
-- Worst-case O(n²)
-- Not stable
-- Performance depends on pivot selection
-
-----
-
-### 🏁 Conclusion
-Quick Sort is one of the most efficient and widely used sorting algorithms. By using partitioning and recursion, it efficiently sorts large datasets. Proper pivot selection improves performance and avoids worst-case scenarios.
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -2613,6 +2621,8 @@ Final sorted array →
 
 ### 🏁 Conclusion
 Quick Sort is one of the most efficient and widely used sorting algorithms. By using partitioning and recursion, it efficiently sorts large datasets. Proper pivot selection improves performance and avoids worst-case scenarios.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -2727,6 +2737,8 @@ Final sorted array →
 ### 🏁 Conclusion
 Heap Sort is an efficient and reliable sorting algorithm. By using the heap data structure, it ensures consistent O(n log n) performance and sorts the array without requiring additional memory.
 
+[⬆️ Get Back to Contents](#-contents)
+
 ---
 
 ## Sequential Search (Linear Search) Implementation
@@ -2747,7 +2759,7 @@ It does not require the array to be sorted.
 
 ---
 
-### 🧠 Algorithm: Sequential Searc1. 
+### 🧠 Algorithm: Sequential Search
 1. Start
 2. Read number of elements n
 3. Read array elements
@@ -2810,6 +2822,8 @@ Element found at position 3
 
 ### 🏁 Conclusion
 Sequential Search is the most basic searching algorithm. It is easy to understand and implement but is suitable only for small or unsorted datasets due to its linear time complexity.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -2916,7 +2930,9 @@ Element found at position 4
 ### 🏁 Conclusion
 Binary Search is one of the most efficient searching algorithms for sorted data. By repeatedly dividing the array into halves, it significantly reduces the number of comparisons and performs much faster than linear search for large inputs.
 
---
+[⬆️ Get Back to Contents](#-contents)
+
+---
 
 ## Hash Table with Linear Probing
 
@@ -3035,6 +3051,8 @@ Index 5 → 13
 
 ### 🏁 Conclusion
 Hash Table with Linear Probing is an efficient data structure for fast insertion and retrieval. By using a hash function and resolving collisions sequentially, it provides near constant-time performance under good conditions.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -3165,6 +3183,8 @@ Index 7 → 13
 
 ### 🏁 Conclusion
 Hash Table with Quadratic Probing improves collision handling compared to Linear Probing. By using a quadratic formula to find new positions, it spreads keys more uniformly and improves performance when collisions occur.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -3311,6 +3331,8 @@ Index 9 → 43
 ### 🏁 Conclusion
 Hash Table with Double Hashing is an efficient collision resolution method. By using two hash functions, it distributes keys more uniformly and minimizes clustering, making it one of the best open addressing techniques for hash tables.
 
+[⬆️ Get Back to Contents](#-contents)
+
 ---
 
 ## 🌳 Binary Tree Implementation
@@ -3436,6 +3458,8 @@ Traversals:
 
 ### 🏁 Conclusion
 Binary Tree is a fundamental data structure in computer science. It allows efficient representation of hierarchical data and forms the basis for advanced structures like Binary Search Trees, Heaps, and Expression Trees.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -3598,6 +3622,8 @@ Inorder Traversal →
 ### 🏁 Conclusion
 Binary Search Tree is an efficient data structure for dynamic data storage. It provides fast insertion, deletion, and searching when balanced and is widely used in databases and indexing systems.
 
+[⬆️ Get Back to Contents](#-contents)
+
 ---
 
 ## 🌳 AVL Tree Implementation
@@ -3725,6 +3751,8 @@ AVL tree always maintains height = O(log n)
 
 ### 🏁 Conclusion
 AVL Tree is a self-balancing Binary Search Tree that guarantees O(log n) time complexity for all major operations. It is ideal when fast search operations are required and tree balance must be maintained automatically.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
@@ -3860,9 +3888,11 @@ DFS → 0 1 3 2
 ### 🏁 Conclusion
 Graph using Adjacency Matrix is a simple and effective way to represent graphs. BFS explores level by level using a queue, while DFS explores deeply using recursion. Both are fundamental graph traversal techniques widely used in computer science.
 
+[⬆️ Get Back to Contents](#-contents)
+
 ---
 
-## 🌳 Kruskal’s Algorithm for Minimum Spanning Tree (MST)
+## 🌳 Kruskal's Algorithm for Minimum Spanning Tree (MST)
 
 ### 📘 Introduction
 A Minimum Spanning Tree (MST) of a connected, weighted graph is a subset of edges that:
@@ -3870,7 +3900,7 @@ A Minimum Spanning Tree (MST) of a connected, weighted graph is a subset of edge
 - Has no cycles
 - Has minimum total edge weight
 
-Kruskal’s Algorithm is a greedy algorithm used to find the MST of a graph.
+Kruskal's Algorithm is a greedy algorithm used to find the MST of a graph.
 
 It selects the smallest weight edges one by one while avoiding cycles.
 
@@ -3894,7 +3924,7 @@ If two vertices belong to the same set → adding edge creates a cycle → rejec
 
 ---
 
-### 🧠 Algorithm: Kruskal’s Algorithm (General)
+### 🧠 Algorithm: Kruskal's Algorithm (General)
 1. Start
 2. Read number of vertices V and edges E
 3. Store all edges
@@ -3910,7 +3940,7 @@ If two vertices belong to the same set → adding edge creates a cycle → rejec
 
 ---
 
-### 🧠 Algorithm: Kruskal’s Algorithm (Main Program)
+### 🧠 Algorithm: Kruskal's Algorithm (Main Program)
 1. Start
 2. Read number of vertices V
 3. Read number of edges E
@@ -4012,16 +4042,18 @@ Overall → O(E log E)
 
 ### ⚠️ Disadvantages
 - Needs sorting of edges
-- Not efficient for dense graphs compared to Prim’s algorithm
+- Not efficient for dense graphs compared to Prim's algorithm
 
 ---
 
 ### 🏁 Conclusion
-Kruskal’s Algorithm is a greedy approach to find the Minimum Spanning Tree. By sorting edges and avoiding cycles using Union-Find, it efficiently constructs an MST with minimum total weight.
+Kruskal's Algorithm is a greedy approach to find the Minimum Spanning Tree. By sorting edges and avoiding cycles using Union-Find, it efficiently constructs an MST with minimum total weight.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
-## 🌳 Prim’s Algorithm for Minimum Spanning Tree (MST)
+## 🌳 Prim's Algorithm for Minimum Spanning Tree (MST)
 
 ### 📘 Introduction
 A Minimum Spanning Tree (MST) is a subset of edges of a connected, weighted, undirected graph that:
@@ -4029,9 +4061,9 @@ A Minimum Spanning Tree (MST) is a subset of edges of a connected, weighted, und
 - Contains no cycles
 - Has the minimum total edge weight
 
-Prim’s Algorithm is a greedy algorithm used to find the MST.
+Prim's Algorithm is a greedy algorithm used to find the MST.
 
-Unlike Kruskal’s Algorithm, Prim’s Algorithm builds the MST vertex by vertex, starting from any one vertex and always choosing the minimum weight edge that connects a visited vertex to an unvisited vertex.
+Unlike Kruskal's Algorithm, Prim's Algorithm builds the MST vertex by vertex, starting from any one vertex and always choosing the minimum weight edge that connects a visited vertex to an unvisited vertex.
 
 ---
 
@@ -4057,7 +4089,7 @@ Unlike Kruskal’s Algorithm, Prim’s Algorithm builds the MST vertex by vertex
 4. Call prim()
 5. Stop
 
-    #### Algorithm: Prim’s Algorithm
+    #### Algorithm: Prim's Algorithm
     1. Initialize arrays:
         - Set all key[i] = ∞
         - Set all visited[i] = 0
@@ -4100,20 +4132,22 @@ Overall Time Complexity → O(V²)
 ---
 
 ### ⚠️ Disadvantages
-- Less efficient for sparse graphs compared to Kruskal’s
+- Less efficient for sparse graphs compared to Kruskal's
 - O(V²) when adjacency matrix is used
 
 ---
 
 ### 🏁 Conclusion
-Prim’s Algorithm is a greedy method that builds the Minimum Spanning Tree by selecting the smallest edge connecting a visited vertex to an unvisited vertex. It is widely used for network design, road systems, and communication networks.
+Prim's Algorithm is a greedy method that builds the Minimum Spanning Tree by selecting the smallest edge connecting a visited vertex to an unvisited vertex. It is widely used for network design, road systems, and communication networks.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
 
-## 🚀 Dijkstra’s Algorithm for Shortest Path
+## 🚀 Dijkstra's Algorithm for Shortest Path
 
 ### 📘 Introduction
-Dijkstra’s Algorithm is a greedy algorithm used to find the shortest path from a single source vertex to all other vertices in a weighted graph.
+Dijkstra's Algorithm is a greedy algorithm used to find the shortest path from a single source vertex to all other vertices in a weighted graph.
 
 It works only for:
 - Graphs with non-negative edge weights
@@ -4149,7 +4183,7 @@ It is widely used in:
 5. Call dijkstra(src)
 6. Stop
 
-    #### Algorithm: Dijkstra’s Algorithm
+    #### Algorithm: Dijkstra's Algorithm
     1. Initialize arrays:
         - Set all dist[i] = ∞
         - Set all visited[i] = 0
@@ -4200,6 +4234,8 @@ It is widely used in:
 ---
 
 ### 🏁 Conclusion
-Dijkstra’s Algorithm is a greedy technique used to find the shortest path from a single source to all other vertices in a weighted graph. It repeatedly selects the nearest unvisited vertex and updates distances using relaxation.
+Dijkstra's Algorithm is a greedy technique used to find the shortest path from a single source to all other vertices in a weighted graph. It repeatedly selects the nearest unvisited vertex and updates distances using relaxation.
+
+[⬆️ Get Back to Contents](#-contents)
 
 ---
